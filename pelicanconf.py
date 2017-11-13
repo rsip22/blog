@@ -8,9 +8,6 @@ SITEURL = ''
 
 PATH = 'content'
 
-STATIC_PATHS = {'extra/CNAME'}
-EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}, }
-
 TIMEZONE = 'America/Sao_Paulo'
 
 DEFAULT_LANG = 'en'
