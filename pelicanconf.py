@@ -33,10 +33,10 @@ SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = 6
-
+"""
 FILES_TO_COPY = (
     ('extra/CNAME', 'CNAME'),
 )
-
+"""
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

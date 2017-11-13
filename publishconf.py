@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'http://renatas.xyz'
+SITEURL = 'https://rsip22.github.io/rsip22'
 RELATIVE_URLS = False
 
 FEED_DOMAIN = SITEURL
