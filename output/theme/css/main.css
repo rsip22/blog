@@ -15,7 +15,7 @@ Colors :
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1em;
+  font-size: 1.1em;
   line-height: 150%;
   text-align: left;
   color: #4D4D4C;
@@ -325,6 +325,6 @@ li.tag-4 { font-size: 110%; margin: 0 1em; }
     }
     body {
         margin: 0 4%;
-        width: 93%;
+        width: 95%;
     }
 }
