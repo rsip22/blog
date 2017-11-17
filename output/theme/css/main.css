@@ -32,6 +32,11 @@ header {
   width: inherit;
 }
 
+blockquote {
+    border-left: .35em solid #4D4D4C;
+    padding-left: 1em;
+}
+
 section {
     width: 100%;
     display: block;
