@@ -315,7 +315,10 @@ li.tag-4 { font-size: 110%; margin: 0 1em; }
 
 @media screen and (min-device-width: 760px) {
     body {
-        margin: 0 5%;
-        width: 90%;
+        margin: 0 auto;
+        width: 80%;
+    }
+    header {
+        width: 100%;
     }
 }

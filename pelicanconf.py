@@ -31,7 +31,7 @@ AUTHOR_FEED_RSS = 'feeds/%s.rss.xml'
 PELICAN_SIMPLEGREY_TWITTER_CARD_ACCOUNT = 'rsip22'
 TWITTER_USERNAME = 'rsip22'
 
-OPEN_GRAPH_IMAGE = 'opengraph.png'
+OPEN_GRAPH_IMAGE = 'opengraph_600.jpg'
 
 # Blogroll
 LINKS = (('Outreachy', 'http://outreachy.org/'),
