@@ -9,7 +9,7 @@ Summary: A bit about me
 
 ![Renata's picture, a white woman profile. She touches her chin with her left hand fingertips]({filename}/img/author.png)
 
-### About me
+## About me
 Hello, world! For those who are meeting me for the first time, I am a 31 years old History teacher from Porto Alegre, Brazil.
 
 Some people might know me from the Python community, because I have been leading [PyLadies Porto Alegre](https://pyladiespoa.pythonanywhere.com) and helping organize [Django Girls workshops](https://blog.djangogirls.org/post/166221911403/django-girls-rio-grande-do-sul) in my state since 2016. If you don't, that's okay. Nice to meet you!
