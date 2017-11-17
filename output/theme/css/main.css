@@ -13,29 +13,23 @@ Colors :
 
 /* Layout */
 
-html {
-  font-size: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
+  font-size: 1em;
   line-height: 150%;
   text-align: left;
   color: #4D4D4C;
   padding: 0;
   margin: 0 auto;
-  width: 90%;
+  width: 95%;
 }
 
 header {
   background-color: #40403F;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 1em;
-  width: 100%;
+  height: 4em;
+  line-height: 4em;
+  padding: .5em;
+  width: inherit;
 }
 
 section {
@@ -299,6 +293,7 @@ li.tag-4 { font-size: 110%; margin: 0 1em; }
     }
     body {
         margin: 0 16%;
+        width: 80%;
     }
 }
 
@@ -314,6 +309,7 @@ li.tag-4 { font-size: 110%; margin: 0 1em; }
     }
     body {
         margin: 0 12%;
+        width: 85%;
     }
 }
 
@@ -329,5 +325,6 @@ li.tag-4 { font-size: 110%; margin: 0 1em; }
     }
     body {
         margin: 0 4%;
+        width: 93%;
     }
 }
