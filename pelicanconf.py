@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Renata'
 SITENAME = "Renata's blog"
 SITEURL = ''
+HTML_LANG = 'en'
 
 THEME = 'themes/pelican-simplegrey'
 # BOOTSTRAP_THEME = 'simplegrey'

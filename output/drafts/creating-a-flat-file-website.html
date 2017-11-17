@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Creating a flat file website - Renata's blog</title>
+		<meta name="author" content="Renata">
+
+	<!-- Open Graph tags -->
+
+
+
+
+		<meta property="og:image"
+			  content="/img/opengraph.png"/>
+
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="Renata's blog - Creating a flat file website"/>
+		<meta property="og:url" content="/drafts/creating-a-flat-file-website.html"/>
+		<meta property="og:description" content="How I ended up creating this site."/>
+
+
+	<meta name="description" content="How I ended up creating this site.">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@rsip22">
+	<meta name="twitter:title" content="Creating a flat file website">
+	<meta name="twitter:description" content="How I ended up creating this site.">
+	<meta name="twitter:url" content="/drafts/creating-a-flat-file-website.html">
+
+		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+
+
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
+			<link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
+	</head>
+
+	<body>
+		
+		
+	  	<header role="banner">
+		    <div class="feeds">
+				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed" dir=""><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+		    </div>
+			<a href="" class="title">Renata's blog</a>
+		</header>
+
+		<section>
+	<article class="full">
+			
+		<h1>Creating a flat file website</h1>
+		
+<div class="metadata">
+  <time datetime="2018-11-01T20:00:00-02:00" pubdate>qui 01 novembro 2018</time>
+    <address class="vcard author">
+      by <a class="url fn" href="/author/renata.html">Renata</a>
+    </address>
+  in <a href="/category/blog.html">blog</a>
+<p class="tags">tagged <a href="/tag/dev.html">dev</a>, <a href="/tag/outreachy.html">outreachy</a>, <a href="/tag/python.html">python</a>, <a href="/tag/pelican.html">pelican</a></p></div>		
+		<h3>About this blog</h3>
+<p>I was supposed to make a blog to report my journey through the <a href="https://outreachy.org">Outreachy internship</a>.</p>
+<p>I'm biased towards systems that use flat files for blogs instead of a database. It is so much easier to make the posts available through other means (such as having them live in a Github repository) that assure their content will live on even if the site is taken down or dies. It is also so much better to have backups and to download the content this way, instead of pulling down a huge database file, which may cost a significant amount of money to pay to transfer that amount of data. Having flat files with your content with a format that is shared among many systems (such as Markdown) might also assure a smooth transition to a new system, should that become a necessity at some point.</p>
+<p>I have experimented around this a bit while working on some projects. I played with <a href="https://getlektor.com">Lektor</a> while contributing to <a href="https://pybee.org/">PyBeeWare</a>, but even though I liked it, I found it's documentation severely lacking. I worked with <a href="https://getgrav.org/">Grav</a> while we were trying to put Tem.blog.br back online. Grav is a good CMS and definitely an alternative to Wordpress, but, well, needs a server to set it up.</p>
+<p>At first, I thought about using <a href="https://jekyllrb.com/">Jekyll</a>, which is a good site generator, has a <a href="https://www.codecademy.com/learn/deploy-a-website">Code Academy</a> tutorial on how to create a website and deploy it to Github Pages that I have done a while ago. I tended to chose it to develop this blog, but it is written in Ruby. Which is fine, of course. The first steps I took into learning how to program were in Ruby, thanks to <a href="https://pine.fm/LearnToProgram/">Chris Pine's Learn to Program</a> | <a href="https://www.jmonteiro.com/aprendaaprogramar/">versão pt-br</a>. What was my objection with Ruby, then? It is because most of the Outreachy project I will be developing with Python (and maybe some Javascript) and I thought that adding a third language might make my life a bit harder.</p>
+<p>That is how I ended up with <a href="https://blog.getpelican.com/">Pelican</a>.</p>
+<p>I used the instructions provided by <a href="https://a-slide.github.io/blog/github-pelican">Adrien Leger on </a></p>
+<p>For themes, I used <a href="http://www.pelicanthemes.com/">Pelican Themes</a></p>	
+
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="rsip22" data-lang="en" data-size="large" data-related="rsip22">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		</section>
+
+		<aside>
+			<nav>
+				<h2>Categories</h2>
+				<ul>
+		              <li class="active"><a href="/category/blog.html">blog</a></li>
+				</ul>
+	        </nav>
+				<h2>Social</h2>
+			    <ul class="social">
+				  <li><a href="https://www.quitter.se/rsip22">Quitter</a><i></i></li>
+				  <li><a href="https://www.twitter.com/rsip22">Twitter</a><i></i></li>
+				  <li><a href="https://www.github.com/rsip22">Github</a><i></i></li>
+			    </ul>
+	            <h2>Blogroll</h2>
+	            <ul>
+	                <li><a href="http://outreachy.org/">Outreachy</a></li>
+	                <li><a href="https://pyladiespoa.pythonanywhere.com">PyLadies Porto Alegre</a></li>
+	            </ul>
+		</aside>
+
+		<footer>
+			<p role="contentinfo">
+				<span class="flip">©</span> 2017 Renata - Proudly powered by <a href="https://getpelican.com">pelican</a>. Theme <a href="https://github.com/rsip22/pelican-simplegrey">pelican-simplegrey</a>.
+			</p>
+		</footer>
+	</body>
+</html>

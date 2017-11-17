@@ -67,6 +67,11 @@ footer {
   font-size: 0.8em;
 }
 
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
 /* Header */
 
 header a {
@@ -115,7 +120,8 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Source Sans Pro",sans-serif;
     font-weight: 400;
     text-shadow: 0.1em 0.1em 0.1em #EFEFEF;
-    line-height: 125%;
+    line-height: .5em;
+    padding: .5em 0 0 0;
 }
 
 h1 {
@@ -137,13 +143,14 @@ p {
 
 a {
   text-decoration: none;
-  border-bottom: 1px dotted #4D4D4C;
+  border-bottom: 1px solid #4D4D4C;
   color: #4D4D4C;
 }
 
 a:hover, a:active {
   text-decoration: none;
   border-bottom: 1px dotted #4271AE;
+  font-weight: 500;
   color: #4271AE;
 }
 
