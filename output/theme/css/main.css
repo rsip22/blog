@@ -292,8 +292,9 @@ li.tag-4 { font-size: 110%; margin: 0 1em; }
         display: inline-table;
     }
     body {
-        margin: 0 16%;
-        width: 80%;
+        padding: 0;
+        margin: 0 15%;
+        width: 70%;
     }
 }
 
@@ -308,8 +309,8 @@ li.tag-4 { font-size: 110%; margin: 0 1em; }
         display: inline-table;
     }
     body {
-        margin: 0 12%;
-        width: 85%;
+        margin: 0 10%;
+        width: 80%;
     }
 }
 
@@ -324,7 +325,7 @@ li.tag-4 { font-size: 110%; margin: 0 1em; }
         display: inline-table;
     }
     body {
-        margin: 0 4%;
+        margin: 0 5%;
         width: 95%;
     }
 }
