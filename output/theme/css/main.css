@@ -28,7 +28,7 @@ header {
   background-color: #40403F;
   height: 4em;
   line-height: 4em;
-  padding: .5em;
+  padding: 1em;
   width: inherit;
 }
 
@@ -45,6 +45,11 @@ section {
 aside {
     width: 100%;
     display: block;
+}
+
+article img {
+    border: 1px solid #d6d6d6;
+    padding: .1em;
 }
 
 .content {
