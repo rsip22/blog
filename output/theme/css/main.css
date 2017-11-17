@@ -292,40 +292,30 @@ li.tag-4 { font-size: 110%; margin: 0 1em; }
         display: inline-table;
     }
     body {
-        padding: 0;
         margin: 0 15%;
         width: 70%;
     }
 }
 
 @media screen and (min-device-width: 1200px) {
+    body {
+        margin: 0 auto;
+        width: 80%;
+    }
     section {
-        width: 85%;
+        width: 80%;
         display: inline-table;
     }
 
     aside {
-        width: 13%;
+        width: 10%;
         display: inline-table;
-    }
-    body {
-        margin: 0 10%;
-        width: 80%;
     }
 }
 
 @media screen and (min-device-width: 760px) {
-    section {
-        width: 75%;
-        display: inline-table;
-    }
-
-    aside {
-        width: 23%;
-        display: inline-table;
-    }
     body {
         margin: 0 5%;
-        width: 95%;
+        width: 90%;
     }
 }
