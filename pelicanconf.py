@@ -51,6 +51,35 @@ TAGS_SAVE_AS = 'tags.html'
 
 STATIC_PATHS = ['img']
 
+PLUGIN_PATHS = ['./.plugins/pelican-plugins']
+
+PLUGINS = [
+        'gzip_cache',
+        'post_stats',
+        'related_posts',
+        'sitemap',
+    ]
+
+RESPONSIVE_IMAGES = True
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 1,
+        'indexes': 0.5,
+        'pages': 1
+    },
+    'changefreqs': {
+        'articles': 'hourly',
+        'indexes': 'daily',
+        'pages': 'weekly'
+    }
+}
+
+# READ_MORE_LINK = 'Keep reading -->'
+
+RELATED_POSTS_MAX = 2
+
 """
 FILES_TO_COPY = (
     ('extra/CNAME', 'CNAME'),

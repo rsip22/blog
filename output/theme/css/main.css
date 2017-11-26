@@ -50,6 +50,8 @@ aside {
 article img {
     border: 1px solid #d6d6d6;
     padding: .1em;
+    max-width: 100%;
+    height: auto;
 }
 
 .content {
