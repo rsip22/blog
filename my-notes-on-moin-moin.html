@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>My notes on Moin Moin - Renata's blog</title>
+		<meta name="author" content="Renata">
+
+        <link rel="shortcut icon" type="image/png" href="/theme/images/icons/favicon.png"/>
+
+	<!-- Open Graph tags -->
+
+
+
+
+		<meta property="og:image"
+			  content="/img/opengraph_600.jpg"/>
+
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="Renata's blog - My notes on Moin Moin"/>
+		<meta property="og:url" content="/my-notes-on-moin-moin.html"/>
+		<meta property="og:description" content="Appointments from my work"/>
+
+
+	<meta name="description" content="Appointments from my work">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@rsip22">
+	<meta name="twitter:title" content="My notes on Moin Moin">
+	<meta name="twitter:description" content="Appointments from my work">
+	<meta name="twitter:url" content="/my-notes-on-moin-moin.html">
+
+		<link rel="stylesheet" type="text/css" media="screen" href="/theme/css/screen.css"/>
+		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="/theme/css/pygments/native.css" type="text/css" />
+
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
+			<link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		
+		
+	  	<header>
+		    <div class="feeds">
+				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+		    </div>
+			<a href="" class="title" title="Renata's blog">Renata's blog</a>
+		</header>
+
+		<section>
+	<article class="full">
+
+		<h1>My notes on Moin Moin</h1>
+		<small><p title="~583 words"><em>~ 3 min read</em></p></small>
+
+<div class="metadata">
+  <time datetime="2017-12-31T00:49:00-02:00" pubdate>Sun 31 December 2017</time>
+    <address class="vcard author">
+      by <a class="url fn" href="/author/renata.html">Renata</a>
+    </address>
+  in <a href="/category/blog.html">blog</a>
+<p class="tags">tagged <a href="/tag/personal.html">personal</a>, <a href="/tag/outreachy.html">outreachy</a>, <a href="/tag/development.html">development</a>, <a href="/tag/moinmoin-wiki.html">moinmoin-wiki</a></p></div>
+		<p>Below are just some appointments that I had made while working/studying MoinMoin wiki in December.</p>
+<h3>Just download and install it?</h3>
+<p>Downloading <a href="https://moinmo.in/MoinMoinDownload">MoinMoin Wiki</a> comes with a very nice message saying: 'You also need to apply this bugfix patch, sorry.' Which meant nothing to me, because I had never applied a patch before. And, really, that is not very welcoming to new people, it makes me wonder why couldn't they just provide a final corrected version of the code for instalation? But, anyway, I had to learn how to do that.</p>
+<h3>Applying a patch on GNU/Linux</h3>
+<p>At first, I had a bit of trouble trying to figure out what 'applying a patch' meant in practical terms (what I had to do to apply them). I had <em>created a patch</em> before, when contributing to some translations, but I had never <em>applied a patch</em>.</p>
+<p>I searched online for a bit and... it ended up not being as difficult as it sounds (but it would be so much easier <em>not having to do it to begin with</em>). First of all, I had to find the 'raw commit' on the link provided and download the file to the moinmoin directory. Not only that, but this file should be saved with a .diff extension, for instance: <strong>patch_file.diff</strong>.</p>
+<p>Then, inside the directory the command patch should be used:</p>
+<div class="highlight"><pre><span></span><code><span class="err">patch -p1 &lt; patch_file.diff</span>
+</code></pre></div>
+
+
+<p>And done! Patch applied to all the four files.</p>
+<h3>Categories</h3>
+<p>From my understanding, to use EventCalendar, at least a page inside a category had to be created.</p>
+<blockquote>
+<p>To insert an event, insert the event information in any pages of specified category (CategoryEventCalendar by default). <a href="EventCalendar">https://moinmo.in/MacroMarket/EventCalendar</a></p>
+</blockquote>
+<p>That meant I had to play a bit with MoinMoin and get familiarized on how to use it. Sure, I had used a wiki before (Wikipedia and, as I mentioned in another post, ikiwiki). I spend a whole day just doing that, learning how to create new categories on this wiki and creating new pages, inserting the new pages in a category, listing them and such. Was CategoryCategory a thing? Should I just write EventCalendar or CategoryEventCalendar? This last one won, because that seems to be the pattern for the MoinMoin website itself.</p>
+<h3>Still on Macros</h3>
+<p>A macro is entered as wiki markup and it processes a few parameters to generate an output, which is displayed in the content area.</p>
+<p>MoinMoin allows two types of macros:</p>
+<ul>
+<li><a href="https://moinmo.in/HelpOnMacros">Standard macros</a>
+Standard macros are macros which code comes with MoinMoin code. They are ready to use.</li>
+</ul>
+<blockquote>
+<p>Macros reside in MoinMoin/macro and data/plugin/macro.</p>
+<p>The macro object can access the following objects:</p>
+<p>macro.request (see MoinMoin/request)</p>
+<p>http://hg.moinmo.in/moin/1.8?f=-1;file=MoinMoin/request</p>
+<p>macro.formatter (see MoinMoin/formatter for API)</p>
+<p>http://hg.moinmo.in/moin/1.8?f=-1;file=MoinMoin/formatter</p>
+<p>macro.formatter.page (see MoinMoin/Page.py)</p>
+<p>http://hg.moinmo.in/moin/1.8?f=-1;file=MoinMoin/Page.py</p>
+<p>Macros should use macro.formatter to create the output and return it.</p>
+</blockquote>
+<p>That makes sense, now. <a href="https://moinmo.in/MacroMarket/EmbedContent?action=AttachFile&amp;do=view&amp;target=EmbedContent.py">EmbedContent</a> uses this macro.formatter and EventCalendar uses it as well. This is called when the macro is executed (on EventCalendar, it calls a setglobalvalues function and uses global variables to it).</p>
+<ul>
+<li><a href="https://moinmo.in/MacroMarket/">Macros from the macro market</a>
+This is the place to find new macros - and to publish macros developed by the community. There are some guidance for developers, talking about security and documentation, not to mention on how to publish there (create a wiki page).</li>
+</ul>
+<p>Macros from the macro market have to be downloaded and put on the correct directory where MoinMoin wiki is installed to work. I noticed that, for some reason, wget can't be used to download the .py file with the macro code, which sucks when you're using just a terminal on a server.</p>
+
+	</article>
+	<hr>
+	<article>
+			<h2>Related posts</h2>
+		    <ul>
+			        <li><a href="/howto-use-the-ical.html">How to use the EventCalendar ical</a></li>
+			        <li><a href="/debugging-moinmoin-and-using-an-IDE.html">Debugging MoinMoin and using an IDE</a></li>
+		    </ul>
+			<hr>
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="rsip22" data-lang="en" data-size="large" data-related="rsip22">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		</section>
+
+		<aside>
+			<nav>
+				<h2>Categories</h2>
+				<ul>
+		              <li class="active"><a href="/category/blog.html">blog</a></li>
+				</ul>
+	        </nav>
+				<h2>Social</h2>
+			    <ul class="social">
+				  <li><a href="https://www.twitter.com/rsip22" title="Twitter">Twitter</a><i></i></li>
+				  <li><a href="https://www.github.com/rsip22" title="Github">Github</a><i></i></li>
+				  <li><a href="https://linkedin.com/in/rsip22" title="Linkedin">Linkedin</a><i></i></li>
+			    </ul>
+	            <h2>Blogroll</h2>
+	            <ul>
+	                <li><a href="https://rsip22.github.io/portfolio" title="My portfolio">My portfolio</a></li>
+	                <li><a href="http://outreachy.org/" title="Outreachy">Outreachy</a></li>
+	                <li><a href="https://pyladiespoa.pythonanywhere.com" title="PyLadies Porto Alegre">PyLadies Porto Alegre</a></li>
+	            </ul>
+		</aside>
+
+		<footer>
+			<p role="contentinfo" class="center">
+				The original content written by Renata has a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Other content may be subjected to other licenses.<br> Blog powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. Theme <a href="https://github.com/rsip22/pelican-simplegrey">pelican-simplegrey</a> with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> inspired code highlights.
+			</p>
+		</footer>
+	</body>
+</html>

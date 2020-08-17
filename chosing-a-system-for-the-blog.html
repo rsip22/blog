@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Chosing a system for the blog - Renata's blog</title>
+		<meta name="author" content="Renata">
+
+        <link rel="shortcut icon" type="image/png" href="/theme/images/icons/favicon.png"/>
+
+	<!-- Open Graph tags -->
+
+
+
+
+		<meta property="og:image"
+			  content="/img/opengraph_600.jpg"/>
+
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="Renata's blog - Chosing a system for the blog"/>
+		<meta property="og:url" content="/chosing-a-system-for-the-blog.html"/>
+		<meta property="og:description" content="How I ended up developing this blog using Pelican"/>
+
+
+	<meta name="description" content="How I ended up developing this blog using Pelican">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@rsip22">
+	<meta name="twitter:title" content="Chosing a system for the blog">
+	<meta name="twitter:description" content="How I ended up developing this blog using Pelican">
+	<meta name="twitter:url" content="/chosing-a-system-for-the-blog.html">
+
+		<link rel="stylesheet" type="text/css" media="screen" href="/theme/css/screen.css"/>
+		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="/theme/css/pygments/native.css" type="text/css" />
+
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
+			<link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		
+		
+	  	<header>
+		    <div class="feeds">
+				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+		    </div>
+			<a href="" class="title" title="Renata's blog">Renata's blog</a>
+		</header>
+
+		<section>
+	<article class="full">
+
+		<h1>Chosing a system for the blog</h1>
+		<small><p title="~421 words"><em>~ 2 min read</em></p></small>
+
+<div class="metadata">
+  <time datetime="2017-11-26T10:00:00-02:00" pubdate>Sun 26 November 2017</time>
+    <address class="vcard author">
+      by <a class="url fn" href="/author/renata.html">Renata</a>
+    </address>
+  in <a href="/category/blog.html">blog</a>
+<p class="tags">tagged <a href="/tag/development.html">development</a>, <a href="/tag/outreachy.html">outreachy</a>, <a href="/tag/python.html">python</a>, <a href="/tag/pelican.html">pelican</a></p></div>
+		<p>This blog was created because I am supposed to report my journey through the <a href="https://outreachy.org">Outreachy internship</a>.</p>
+<p>Let me start by saying that I'm biased towards systems that use flat files for blogs instead of the ones that require a database. It is so much easier to make the posts available through other means (such as having them backed up in a Git repository) that assure their content will live on even if the site is taken down or dies. It is also so much better to download the content this way, instead of pulling down a huge database file, which may cost a significant amount of money to transfer that amount of data. Having flat files with your content with a format that is shared among many systems (such as Markdown) might also assure a smooth transition to a new system, should the change become a necessity at some point.</p>
+<!-- more -->
+
+<p>I have experimented some options while working on projects. I played with <a href="https://getlektor.com">Lektor</a> while contributing to <a href="https://pybee.org/">PyBeeWare</a>. I liked Lektor, but I found it's documentation severely lacking. I worked with <a href="https://getgrav.org/">Grav</a> while we were working towards getting <a href="https://github.com/temblog">tem.blog.br</a> back online. Grav is a good CMS and it is definitely an alternative to Wordpress, but, well, it needs a server to host it.</p>
+<p>At first, I thought about using <a href="https://jekyllrb.com/">Jekyll</a>. It is a good site generator and it even has a <a href="https://www.codecademy.com/learn/deploy-a-website">Code Academy</a> course on how to create a website and deploy it to Github Pages that I took a while ago. I could have chosen it to develop this blog, <em>but</em> it is written in Ruby. Which is fine, of course. The first steps I took into learning how to program were in Ruby, using <a href="https://pine.fm/LearnToProgram/">Chris Pine's Learn to Program</a> | <a href="https://www.jmonteiro.com/aprendaaprogramar/">versão pt-br</a>. So, what is my objection with Ruby? It so happens that I expect most of the development for the Outreachy project will be done using Python (and maybe some Javascript) and I thought that adding a third language might make my life a bit harder.</p>
+<p>That is how I ended up with <a href="https://blog.getpelican.com/">Pelican</a>. I had played a bit with it while contributing to the <a href="https://brasil.pyladies.com/">PyLadies Brazil website</a>. During Python Sul, the regional Python conference we had last September, we also had a sprint to make the <a href="https://pyladiescaxias.github.io/">PyLadies Caxias do Sul website</a> using Pelican and hosting it with Github Pages. It went smoothly. Look how awesome it turned out:</p>
+<p><img alt="Image of the PyLadies Caxias do Sul website, white background and purple text" src="/img/pyladies_caxias_website.png"></p>
+<p>So, how to do one of those? Hang on tight, that I will explain it in detail on my next post! ;)</p>
+
+	</article>
+	<hr>
+	<article>
+			<h2>Related posts</h2>
+		    <ul>
+			        <li><a href="/create-a-blog-with-pelican-and-github-pages.html">Creating a blog with pelican and Github pages</a></li>
+			        <li><a href="/debugging-moinmoin-and-using-an-IDE.html">Debugging MoinMoin and using an IDE</a></li>
+		    </ul>
+			<hr>
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="rsip22" data-lang="en" data-size="large" data-related="rsip22">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		</section>
+
+		<aside>
+			<nav>
+				<h2>Categories</h2>
+				<ul>
+		              <li class="active"><a href="/category/blog.html">blog</a></li>
+				</ul>
+	        </nav>
+				<h2>Social</h2>
+			    <ul class="social">
+				  <li><a href="https://www.twitter.com/rsip22" title="Twitter">Twitter</a><i></i></li>
+				  <li><a href="https://www.github.com/rsip22" title="Github">Github</a><i></i></li>
+				  <li><a href="https://linkedin.com/in/rsip22" title="Linkedin">Linkedin</a><i></i></li>
+			    </ul>
+	            <h2>Blogroll</h2>
+	            <ul>
+	                <li><a href="https://rsip22.github.io/portfolio" title="My portfolio">My portfolio</a></li>
+	                <li><a href="http://outreachy.org/" title="Outreachy">Outreachy</a></li>
+	                <li><a href="https://pyladiespoa.pythonanywhere.com" title="PyLadies Porto Alegre">PyLadies Porto Alegre</a></li>
+	            </ul>
+		</aside>
+
+		<footer>
+			<p role="contentinfo" class="center">
+				The original content written by Renata has a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Other content may be subjected to other licenses.<br> Blog powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. Theme <a href="https://github.com/rsip22/pelican-simplegrey">pelican-simplegrey</a> with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> inspired code highlights.
+			</p>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>My project with Outreachy - Renata's blog</title>
+		<meta name="author" content="Renata">
+
+        <link rel="shortcut icon" type="image/png" href="/theme/images/icons/favicon.png"/>
+
+	<!-- Open Graph tags -->
+
+
+
+
+		<meta property="og:image"
+			  content="/img/opengraph_600.jpg"/>
+
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="Renata's blog - My project with Outreachy"/>
+		<meta property="og:url" content="/my-project-with-outreachy.html"/>
+		<meta property="og:description" content="The start of my Outreachy internship"/>
+
+
+	<meta name="description" content="The start of my Outreachy internship">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@rsip22">
+	<meta name="twitter:title" content="My project with Outreachy">
+	<meta name="twitter:description" content="The start of my Outreachy internship">
+	<meta name="twitter:url" content="/my-project-with-outreachy.html">
+
+		<link rel="stylesheet" type="text/css" media="screen" href="/theme/css/screen.css"/>
+		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="/theme/css/pygments/native.css" type="text/css" />
+
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
+			<link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		
+		
+	  	<header>
+		    <div class="feeds">
+				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+		    </div>
+			<a href="" class="title" title="Renata's blog">Renata's blog</a>
+		</header>
+
+		<section>
+	<article class="full">
+
+		<h1>My project with Outreachy</h1>
+		<small><p title="~993 words"><em>~ 4 min read</em></p></small>
+
+<div class="metadata">
+  <time datetime="2017-12-20T02:20:00-02:00" pubdate>Wed 20 December 2017</time>
+    <address class="vcard author">
+      by <a class="url fn" href="/author/renata.html">Renata</a>
+    </address>
+  in <a href="/category/blog.html">blog</a>
+<p class="tags">tagged <a href="/tag/outreachy.html">outreachy</a>, <a href="/tag/development.html">development</a>, <a href="/tag/moinmoin-wiki.html">moinmoin-wiki</a></p></div>
+		<p>Let's get to the project I actually applied to:</p>
+<h2>To build a calendar for FOSS events</h2>
+<p>We have a page on Debian wiki where we centralize the information needed to make that a reality, you can find it here: <a href="https://wiki.debian.org/SocialEventAndConferenceCalendars">SocialEventAndConferenceCalendars</a></p>
+<p>So, in fact, the first thing I did on my internship was:</p>
+<ul>
+<li>
+<p>Search for more sources for FOSS events that hadn't been mentioned in that page yet</p>
+</li>
+<li>
+<p>Update said page with these sources</p>
+</li>
+<li>
+<p>Add some attributes for events that I believe could be useful for people wanting to attend them, such as:</p>
+<ul>
+<li>Is the registration (and not just the CFP) still open?</li>
+<li>Does the event has a code of conduct?</li>
+<li>What about accessibility?</li>
+</ul>
+</li>
+</ul>
+<p>I understand that some of these informations might not be readily available for most of the events, but maybe the mere act of mentioning them in our aggregation system may be enough to an organizer to think about them, if they aim to have their event mentioned "by us"?</p>
+<p>Both my mentor, Daniel, and I have been looking around to find projects that have worked on a goal similar to this one, to study them and see what can be learned from what has been done already and what can be reused from it. They are mentioned on the wiki page as well. If you know any others, feel free to add there or to let us know!</p>
+<p>Among the proposed deliverables for this project:</p>
+<ul>
+<li>making a plugin for other community web sites to maintain calendars within their existing web site (plugin for Discourse forums, MoinMoin, Drupal, MediaWiki, WordPress, etc) and export it as iCalendar data</li>
+<li>developing tools for parsing iCalendar feeds and storing the data into a large central database</li>
+<li>developing tools for searching the database to help somebody find relevant events or see a list of deadlines for bursary applications</li>
+</ul>
+<p>My dear mentor Daniel Pocock suggested that I considered working on a plugin for <a href="https://moinmo.in/MoinMoinWiki">MoinMoinWiki</a>, because Debian and FSFE use MoinMoin for their wikis. I have to admit that I thought that was an awesome idea as soon as I read it, but I was a bit afraid that it would be a very steep learning curve to learn how MoinMoin worked and how I could contribute to it. I'm glad Daniel calmed my fears and reminded me that the mentors are on my side and glad to help!</p>
+<p>So, what else have I been doing?</p>
+<p>So far? I would say studying! Studying documentation for MoinMoin, studying code that has already been written by others, studying how to plan and to implement this project.</p>
+<p>And what have I learned so far?</p>
+<h2>What is MoinMoin Wiki?</h2>
+<p><img alt="MoinMoin logo, sort of a white &quot;M&quot; inside a circle with light blue background. The corners of the M are rounded and seem connected like nodes" src="/img/Moinmoin.png"></p>
+<p>MoinMoin is a wiki written in... Python (YAY! \o/). Let's say that I have... interacted with development on a wiki-like system back when I created my first (and now defunct) blog post-Facebook.</p>
+<p><img alt="Ikiwiki logo, the first 'iki' is black and mirrors the second one, with a red 'W' in the middle" src="/img/ikiwiki.png"></p>
+<p><a href="https://ikiwiki.info/">Ikiwiki</a> was written in Perl, a language I know close to nothing about it, which limited a lot how I could interact with. I am glad that I will be able to work with a language that I am way more familiarized with. (And, on Prof. Masanori's words:  "Python is a cool language.")</p>
+<p>I also learned that MoinMoin's storage mechanism is based on flat files and folders, rather than a database (I swear that, despite <a href="/chosing-a-system-for-the-blog">my defense for flat file systems</a>, this is a coincidence. I mean, if you believe in coincidences). I also found out that the development uses <a href="https://www.mercurial-scm.org/">Mercurial</a> for version control. I look forward to learning exploring it, because so far I have only used git.</p>
+<p>The past few days I set up a local MoinMoin instance. Even though there is <a href="https://moinmo.in/HowTo/Debian8">a HowTo guide</a> to get MoinMoinWiki working on Debian, I had a little trouble setting it up using it. Mostly because the guide is sort of confusing with permissions, I think? I mean, it says to create a new user with no login, but then it gives commands that can only be executed by root or sudo. That doesn't seen very wise. So I went on and found <a href="https://hub.docker.com/r/olavgg/moinmoin-wiki/">a docker image for MoinMoin wiki</a> and was able to work on MoinMoin with it. This image is based on Debian Jessie, so maybe that is something that I might work to improve in the future.</p>
+<p>Only after I got everything working with docker that I found this <a href="https://master19.moinmo.in/InstallDocs/QuickInstall#qdlinux">page with instructions for Linux</a> which was what I should've tried in the first place, because I didn't really needed fully configurated server with nginx and uwsgi, only a local instance to play with. It happens.</p>
+<p>I studied the development guide for MoinMoin and I have also worked to understand the development process (and what Macros, Plugins and such are in this context), so I could figure out where and how to develop!</p>
+<h3><em>Macros</em></h3>
+<blockquote>
+<p>A macro is entered as wiki markup and it processes a few parameters to generate an output, which is displayed in the content area.</p>
+</blockquote>
+<p>Searching for Macros, I found out there is a <a href="https://moinmo.in/WikiCourse/21%20Macros">Calendar Macro</a>. And I have discovered that, besides the Calendar Macro, there is also an <a href="https://moinmo.in/MacroMarket/EventCalendar">EventCalendar macro</a> that was developed years ago. I expect to use the next few days to <a href="https://moinmo.in/MacroMarket/EventCalendar?action=AttachFile&amp;do=view&amp;target=EventCalendar-099b.py">study the EventCalendar code</a> more throughly, but the first impression I had is that this code that can be reused and improved for the FOSS calendar.</p>
+<h3><em>Parsers</em></h3>
+<blockquote>
+<p>A parser is entered as wiki markup and it processes a few parameters and a multiline block of text data to generate an output, which is displayed in the content area.</p>
+</blockquote>
+<h3><em>Actions</em></h3>
+<blockquote>
+<p>An action is mostly called using the menu (or a macro) and generates a complete HTML page on its own.</p>
+</blockquote>
+<p>So maybe I will have to work a bit on this afterwards, to interact with the macro and customize the information to be displayed? I am not sure, I will have to look more into this.</p>
+<p>I guess that is all I have to report for now. See you in two weeks (or less)!</p>
+
+	</article>
+	<hr>
+	<article>
+			<h2>Related posts</h2>
+		    <ul>
+			        <li><a href="/howto-use-the-ical.html">How to use the EventCalendar ical</a></li>
+			        <li><a href="/debugging-moinmoin-and-using-an-IDE.html">Debugging MoinMoin and using an IDE</a></li>
+		    </ul>
+			<hr>
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="rsip22" data-lang="en" data-size="large" data-related="rsip22">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		</section>
+
+		<aside>
+			<nav>
+				<h2>Categories</h2>
+				<ul>
+		              <li class="active"><a href="/category/blog.html">blog</a></li>
+				</ul>
+	        </nav>
+				<h2>Social</h2>
+			    <ul class="social">
+				  <li><a href="https://www.twitter.com/rsip22" title="Twitter">Twitter</a><i></i></li>
+				  <li><a href="https://www.github.com/rsip22" title="Github">Github</a><i></i></li>
+				  <li><a href="https://linkedin.com/in/rsip22" title="Linkedin">Linkedin</a><i></i></li>
+			    </ul>
+	            <h2>Blogroll</h2>
+	            <ul>
+	                <li><a href="https://rsip22.github.io/portfolio" title="My portfolio">My portfolio</a></li>
+	                <li><a href="http://outreachy.org/" title="Outreachy">Outreachy</a></li>
+	                <li><a href="https://pyladiespoa.pythonanywhere.com" title="PyLadies Porto Alegre">PyLadies Porto Alegre</a></li>
+	            </ul>
+		</aside>
+
+		<footer>
+			<p role="contentinfo" class="center">
+				The original content written by Renata has a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Other content may be subjected to other licenses.<br> Blog powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. Theme <a href="https://github.com/rsip22/pelican-simplegrey">pelican-simplegrey</a> with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> inspired code highlights.
+			</p>
+		</footer>
+	</body>
+</html>

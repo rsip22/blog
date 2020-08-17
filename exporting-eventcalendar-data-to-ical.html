@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Exporting EventCalendar data to ical - Renata's blog</title>
+		<meta name="author" content="Renata">
+
+        <link rel="shortcut icon" type="image/png" href="/theme/images/icons/favicon.png"/>
+
+	<!-- Open Graph tags -->
+
+
+
+
+		<meta property="og:image"
+			  content="/img/opengraph_600.jpg"/>
+
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="Renata's blog - Exporting EventCalendar data to ical"/>
+		<meta property="og:url" content="/exporting-eventcalendar-data-to-ical.html"/>
+		<meta property="og:description" content="An update on my work on the EventCalendar macro"/>
+
+
+	<meta name="description" content="An update on my work on the EventCalendar macro">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@rsip22">
+	<meta name="twitter:title" content="Exporting EventCalendar data to ical">
+	<meta name="twitter:description" content="An update on my work on the EventCalendar macro">
+	<meta name="twitter:url" content="/exporting-eventcalendar-data-to-ical.html">
+
+		<link rel="stylesheet" type="text/css" media="screen" href="/theme/css/screen.css"/>
+		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="/theme/css/pygments/native.css" type="text/css" />
+
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
+			<link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		
+		
+	  	<header>
+		    <div class="feeds">
+				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+		    </div>
+			<a href="" class="title" title="Renata's blog">Renata's blog</a>
+		</header>
+
+		<section>
+	<article class="full">
+
+		<h1>Exporting EventCalendar data to ical</h1>
+		<small><p title="~955 words"><em>~ 4 min read</em></p></small>
+
+<div class="metadata">
+  <time datetime="2018-02-07T14:49:00-02:00" pubdate>Wed 07 February 2018</time>
+    <address class="vcard author">
+      by <a class="url fn" href="/author/renata.html">Renata</a>
+    </address>
+  in <a href="/category/blog.html">blog</a>
+<p class="tags">tagged <a href="/tag/outreachy.html">outreachy</a>, <a href="/tag/development.html">development</a>, <a href="/tag/icalendar.html">icalendar</a>, <a href="/tag/eventcalendar.html">eventcalendar</a>, <a href="/tag/moinmoin-wiki.html">moinmoin-wiki</a></p></div>
+		<p>I have been working on the EventCalendar code, to allow to export the events' data to icalendar.</p>
+<h3>A new cal_action</h3>
+<p>I started by creating a new cal_action (ical) that would call the function I created, download_events_ical(). I added it to the bottom menu of the calendar, along with with other views (Weekly, Daily, Simple) that also use cal_action to return the calendar.</p>
+<p><img alt="Wiki page showing the calendar, with the 'ical' link at the bottom" src="/img/eventcalendar_with_ical_menu.png"></p>
+<p>Afterwards, discussing it with my mentors, we figured out that this could be improved by always offering the .ics file as an attachment to the page.</p>
+<p>Either way, no matter if we decide to leave just the link at the bottom or put it up as an attachment, or both, the file must be properly constructed with the data gathered by EventCalendar from the wiki pages with event data. This is what I'm working on this past week.</p>
+<h3>Setting the headers</h3>
+<p>The 'download' or opening the icalendar file directly in the calendar application should happen automatically once the proper headers are set, so I had to specify the Content-Type that will be returned for the 'download ical' request.</p>
+<p>A bug error page with code that actually showed me how to do that in moinmoin: <a href="https://moinmo.in/MoinMoinBugs/EditorContentTypeHttpHeader">EditorContentTypeHttpHeader</a></p>
+<p>Now the browser knows that this file should be opened by a software that handles calendars (this immediately prompts the open/save dialog in browsers).</p>
+<h3>Debugging</h3>
+<p>To parse the data, I investigated the EventCalendar variables that had the event data stored.</p>
+<p>I knew there was a function loadEvents() already written in the code, that could unpack to dictionary variables (events, cal_events, labels) the info about the events. I needed to see how this data was constructed to figure out how to use it for the icalendar elements. With a print command, I ended up with this:</p>
+<div class="highlight"><pre><span></span><code><span class="c">Events: {</span>
+<span class="c">    u&#39;e_Workshops_2&#39;: {</span>
+<span class="c">        &#39;date_len&#39;: 1,</span>
+<span class="c">        &#39;startdate&#39;: u&#39;20180124&#39;,</span>
+<span class="c">        &#39;time_len&#39;: 0,</span>
+<span class="c">        &#39;enddate&#39;: u&#39;20180124&#39;,</span>
+<span class="c">        &#39;description&#39;: u&#39;workshop test&#39;,</span>
+<span class="c">        &#39;recur_freq&#39;: 0,</span>
+<span class="c">        &#39;title&#39;: u&#39;workshop&#39;,</span>
+<span class="c">        &#39;clone&#39;: 0,</span>
+<span class="c">        &#39;recur_type&#39;: &#39;&#39;,</span>
+<span class="c">        &#39;label&#39;: &#39;&#39;,</span>
+<span class="c">        &#39;recur_until&#39;: &#39;&#39;,</span>
+<span class="c">        &#39;bgcolor&#39;: u&#39;#000000&#39;,</span>
+<span class="c">        &#39;hid&#39;: &#39;head-f5e173288ca20abb0a37e74aa035e6bbedc3e6ff-2&#39;,</span>
+<span class="c">        &#39;starttime&#39;: &#39;&#39;,</span>
+<span class="c">        &#39;endtime&#39;: &#39;&#39;,</span>
+<span class="c">        &#39;id&#39;: u&#39;e_Workshops_2&#39;,</span>
+<span class="c">        &#39;refer&#39;: u&#39;Workshops&#39;</span>
+<span class="c">    },</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<p>Which shows that each 'events' item is an unicode object (e_Workshops_1, e_Conferences_1...) that contains another dictionary.</p>
+<p>In Python, dictionaries may be interacted with using the values method. So that is what I did, and, for each value, I called a make_todo function that would create a <a href="https://en.wikipedia.org/wiki/ICalendar#To-do_(VTODO)">VTODO</a>. But scratch that. Even though I indeed created a 'to-do', that isn't what I <em>should have</em> created - I realize that as I write this post. We are talking about events, so I should've created a  <a href="https://en.wikipedia.org/wiki/ICalendar#Events_(VEVENT)">VEVENT</a> component, as needed for icalendar format. I'm going to begin rectifying this as soon as I finish this post.</p>
+<h3>Next steps</h3>
+<p>As it is now, the cal_event does allow to download a file... but the file returned is an html page from the wiki, with the icalendar element inserted in it. This isn't what we need. We need just the icalendar file to be returned, no HTML, and certainly not the wiki page, so it can be understood properly by the calendar software/application.</p>
+<p>This is caused both by how MoinMoin works and by the macro code itself. When the EventCalendar macro executes, it appends it's result to the page html. I thought for a bit that if this append didn't happen, the return result would be an empty page and that this might allow our .ics file 'take over', so I kept thinking of turning the download_ical function into a whole new macro which uses EventCalendar data, but MoinMoin doesn't actually work like that.</p>
+<p>I have found a macro called <a href="https://moinmo.in/MacroMarket/FormatConverter">Format Converter</a> that 'allows instant single-file conversions from various input formats into various output formats'. Maybe icalendar could be added to it and that would solve the problem? If that so, anyone who wanted to use EventCalendar with the capacity to export to .ics, would need to install this macro as well. Doesn't seem like the most appopriate way to solve this. Maybe just copying part of FormatConverter to EventCalendar could work.</p>
+<p>I'm still investigating the issue of returning the file with my mentors. We will see how that works out.</p>
+<h2>Some thoughts</h2>
+<p>I remember how I thought it would be "simple", developing this functionality to the EventCalendar macro. Now I see that it is anything but simple, specially because of how much of MoinMoin wiki internals I have to learn in order to do so (and that is just a fraction of the whole system). If I didn't have mentors who patientily help me during the whole process (special thanks to Bruno!) and if I wasn't being paid for the time I spend learning all this - if I was just doing this on my own for the sake of doing it, it's very probable that I would have given up trying to contribute to this complex project a while ago. I'm very glad that <a href="https://outreachy.org">Outreachy</a> came along and it's enabling this work - and my technical and personal growth.</p>
+<p>By the way, for anyone that might be interested, I have been commiting the changes to the macro to the EventCalendar-099.py file on my <a href="https://github.com/rsip22/foss_events/blob/master/EventCalendar-099b.py">foss_events Github repository</a>. I warn you that it is kind of messy because I leave there things I use to debug and things that I think might be useful.</p>
+<h3>Bonus: how to download attachments from MoinMoin using curl</h3>
+<p>I was bummed that I couldn't download the macro .py files using the terminal, it always gave me 403 (Forbidden) and returned HTML. I talked about this with my mentor Bruno and... there is actually a way! It turns out that the '&amp;' character in the URL probably confuses wget and curl, so we use quotes for the address and... it works!</p>
+<div class="highlight"><pre><span></span><code><span class="err">curl &#39;https://moinmo.in/MacroMarket/FormatConverter?action=AttachFile&amp;do=get&amp;target=FormatConverter-1.0.py …&#39; --output http://FormatConverter.py</span>
+</code></pre></div>
+
+
+<p>I'm still curious to see if this won't be a problem when specifying the URL to download the .ics file using Thunderbird.</p>
+
+	</article>
+	<hr>
+	<article>
+			<h2>Related posts</h2>
+		    <ul>
+			        <li><a href="/howto-use-the-ical.html">How to use the EventCalendar ical</a></li>
+			        <li><a href="/debugging-moinmoin-and-using-an-IDE.html">Debugging MoinMoin and using an IDE</a></li>
+		    </ul>
+			<hr>
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="rsip22" data-lang="en" data-size="large" data-related="rsip22">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		</section>
+
+		<aside>
+			<nav>
+				<h2>Categories</h2>
+				<ul>
+		              <li class="active"><a href="/category/blog.html">blog</a></li>
+				</ul>
+	        </nav>
+				<h2>Social</h2>
+			    <ul class="social">
+				  <li><a href="https://www.twitter.com/rsip22" title="Twitter">Twitter</a><i></i></li>
+				  <li><a href="https://www.github.com/rsip22" title="Github">Github</a><i></i></li>
+				  <li><a href="https://linkedin.com/in/rsip22" title="Linkedin">Linkedin</a><i></i></li>
+			    </ul>
+	            <h2>Blogroll</h2>
+	            <ul>
+	                <li><a href="https://rsip22.github.io/portfolio" title="My portfolio">My portfolio</a></li>
+	                <li><a href="http://outreachy.org/" title="Outreachy">Outreachy</a></li>
+	                <li><a href="https://pyladiespoa.pythonanywhere.com" title="PyLadies Porto Alegre">PyLadies Porto Alegre</a></li>
+	            </ul>
+		</aside>
+
+		<footer>
+			<p role="contentinfo" class="center">
+				The original content written by Renata has a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Other content may be subjected to other licenses.<br> Blog powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. Theme <a href="https://github.com/rsip22/pelican-simplegrey">pelican-simplegrey</a> with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> inspired code highlights.
+			</p>
+		</footer>
+	</body>
+</html>

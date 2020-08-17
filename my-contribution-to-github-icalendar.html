@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>My contribution to Github-icalendar - Renata's blog</title>
+		<meta name="author" content="Renata">
+
+        <link rel="shortcut icon" type="image/png" href="/theme/images/icons/favicon.png"/>
+
+	<!-- Open Graph tags -->
+
+
+
+
+		<meta property="og:image"
+			  content="/img/opengraph_600.jpg"/>
+
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="Renata's blog - My contribution to Github-icalendar"/>
+		<meta property="og:url" content="/my-contribution-to-github-icalendar.html"/>
+		<meta property="og:description" content="What I did to apply to Outreachy"/>
+
+
+	<meta name="description" content="What I did to apply to Outreachy">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@rsip22">
+	<meta name="twitter:title" content="My contribution to Github-icalendar">
+	<meta name="twitter:description" content="What I did to apply to Outreachy">
+	<meta name="twitter:url" content="/my-contribution-to-github-icalendar.html">
+
+		<link rel="stylesheet" type="text/css" media="screen" href="/theme/css/screen.css"/>
+		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="/theme/css/pygments/native.css" type="text/css" />
+
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
+			<link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		
+		
+	  	<header>
+		    <div class="feeds">
+				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+		    </div>
+			<a href="" class="title" title="Renata's blog">Renata's blog</a>
+		</header>
+
+		<section>
+	<article class="full">
+
+		<h1>My contribution to Github-icalendar</h1>
+		<small><p title="~430 words"><em>~ 2 min read</em></p></small>
+
+<div class="metadata">
+  <time datetime="2017-12-20T00:01:00-02:00" pubdate>Wed 20 December 2017</time>
+    <address class="vcard author">
+      by <a class="url fn" href="/author/renata.html">Renata</a>
+    </address>
+  in <a href="/category/blog.html">blog</a>
+<p class="tags">tagged <a href="/tag/outreachy.html">outreachy</a>, <a href="/tag/development.html">development</a>, <a href="/tag/github-icalendar.html">github-icalendar</a></p></div>
+		<p>Hello!</p>
+<p>Now that <a href="/blog/hello-world">you already know a bit about me</a>, let me start talking about my internship with Outreachy.</p>
+<p>One of the steps to apply to the internship is to pick the project you would like to work on. I chose the one with Debian to build <a href="https://wiki.debian.org/Outreachy/Round15/Projects#Outreachy.2FRound15.2FProjects.2FSocialEventAndConferenceCalendars.A_calendar_database_of_social_events_and_conferences">a calendar database of social events and conferences</a>.</p>
+<p>It is also part of the application process to make some contribution for the project. At first, it wasn't clear to me what contribution would that be (I hadn't found that URL yet), so I went to the <a href="irc://irc.debian.org/debian-outreach">#debian-outreach</a> IRC channel and... well, asked, of course. That is when I found the page with a description of the task. I was supposed to learn about the iCalendar format (I didn't even know what it was, back then!) and work on an <a href="https://github.com/dpocock/github-icalendar/issues/6">issue on the github-icalendar project</a>: to use repository labels in one of the suggested ways.</p>
+<h2>My contribution for github-icalendar</h2>
+<p><a href="https://github.com/dpocock/github-icalendar/">Github-icalendar</a> works by accessing the open issues in all repositories that the user has access to and transforming them into an iCalendar feed of VTODO items.</p>
+<p>I chose to solve the labels issue using them to filter the list of issues that should appear in a feed. I imagined two use cases for it:</p>
+<ol>
+<li>
+<p>An user wants to get issues from all their repositories that contain a given label (getting all 'bug' issues, for instance)</p>
+</li>
+<li>
+<p>An user wants to get issues from only an specific repository that contain a given label.</p>
+</li>
+</ol>
+<p>Therefore, the label system should support both of these uses.</p>
+<p>Working on this contribution taught me not only about the icalendar format, but it also gave me hands-on experience on interacting with the <a href="https://developer.github.com/v3/issues/">Github Issues API</a>.</p>
+<p>Back in October, I was able to attend <a href="http://2017.pythonbrasil.org.br">Python Brasil</a>, the national conference about Python, during which I stayed in an accomodation with other PyLadies and allies. I used this opportunity to share what I had developed so far and to get some feedback. That's how I learned about pudb and how to use it to debug my code (and find out where I was getting the Github Issues API wrong). Because I found it so useful, on my Pull-Request, I proposed it to be added to the project, to help with future development. I also started adding some tests and wrote some specifications as suggestions to anyone who keeps working on it.</p>
+<p>I would like take this opportunity to thank you to the friends who pointed me in the right direction during the application process and made this internship a reality to me, in particular Elias Dorneles.</p>
+
+	</article>
+	<hr>
+	<article>
+			<h2>Related posts</h2>
+		    <ul>
+			        <li><a href="/git-branch-the-best-decision-I-made.html">Working with git branches was the best decision I made</a></li>
+			        <li><a href="/howto-use-the-ical.html">How to use the EventCalendar ical</a></li>
+		    </ul>
+			<hr>
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="rsip22" data-lang="en" data-size="large" data-related="rsip22">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		</section>
+
+		<aside>
+			<nav>
+				<h2>Categories</h2>
+				<ul>
+		              <li class="active"><a href="/category/blog.html">blog</a></li>
+				</ul>
+	        </nav>
+				<h2>Social</h2>
+			    <ul class="social">
+				  <li><a href="https://www.twitter.com/rsip22" title="Twitter">Twitter</a><i></i></li>
+				  <li><a href="https://www.github.com/rsip22" title="Github">Github</a><i></i></li>
+				  <li><a href="https://linkedin.com/in/rsip22" title="Linkedin">Linkedin</a><i></i></li>
+			    </ul>
+	            <h2>Blogroll</h2>
+	            <ul>
+	                <li><a href="https://rsip22.github.io/portfolio" title="My portfolio">My portfolio</a></li>
+	                <li><a href="http://outreachy.org/" title="Outreachy">Outreachy</a></li>
+	                <li><a href="https://pyladiespoa.pythonanywhere.com" title="PyLadies Porto Alegre">PyLadies Porto Alegre</a></li>
+	            </ul>
+		</aside>
+
+		<footer>
+			<p role="contentinfo" class="center">
+				The original content written by Renata has a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Other content may be subjected to other licenses.<br> Blog powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. Theme <a href="https://github.com/rsip22/pelican-simplegrey">pelican-simplegrey</a> with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> inspired code highlights.
+			</p>
+		</footer>
+	</body>
+</html>
