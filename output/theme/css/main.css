@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Source Sans Pro",sans-serif;
     font-weight: 400;
     text-shadow: 0.1em 0.1em 0.1em #EFEFEF;
-    line-height: .5em;
+    line-height: 1.3em;
     padding: .5em 0 0 0;
 }
 
@@ -170,7 +170,7 @@ pre {
   font-family: 'Source Code Pro',monospace;
   background: none repeat scroll 0 0 #F0F0F0;
   border-radius: 2px;
-  font-size: 0.9em;
+  font-size: 1em;
   font-style: normal;
   letter-spacing: 0.015em;
   line-height: 130%;

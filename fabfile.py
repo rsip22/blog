@@ -21,7 +21,7 @@ env.cloudfiles_api_key = 'my_rackspace_api_key'
 env.cloudfiles_container = 'my_cloudfiles_container'
 
 # Github Pages configuration
-env.github_pages_branch = "master"
+env.github_pages_branch = "main"
 
 # Port for `serve`
 PORT = 8000

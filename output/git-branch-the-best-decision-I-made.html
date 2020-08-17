@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Working with git branches was the best decision I made - Renata's blog</title>
+		<meta name="author" content="Renata">
+
+        <link rel="shortcut icon" type="image/png" href="/theme/images/icons/favicon.png"/>
+
+	<!-- Open Graph tags -->
+
+
+
+
+		<meta property="og:image"
+			  content="/img/opengraph_600.jpg"/>
+
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="Renata's blog - Working with git branches was the best decision I made"/>
+		<meta property="og:url" content="/git-branch-the-best-decision-I-made.html"/>
+		<meta property="og:description" content="A short story about how chosing to use git branches saved me from some trouble"/>
+
+
+	<meta name="description" content="A short story about how chosing to use git branches saved me from some trouble">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@rsip22">
+	<meta name="twitter:title" content="Working with git branches was the best decision I made">
+	<meta name="twitter:description" content="A short story about how chosing to use git branches saved me from some trouble">
+	<meta name="twitter:url" content="/git-branch-the-best-decision-I-made.html">
+
+		<link rel="stylesheet" type="text/css" media="screen" href="/theme/css/screen.css"/>
+		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="/theme/css/pygments/native.css" type="text/css" />
+
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
+			<link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		
+		
+	  	<header>
+		    <div class="feeds">
+				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+		    </div>
+			<a href="" class="title" title="Renata's blog">Renata's blog</a>
+		</header>
+
+		<section>
+	<article class="full">
+
+		<h1>Working with git branches was the best decision I made</h1>
+		<small><p title="~669 words"><em>~ 3 min read</em></p></small>
+
+<div class="metadata">
+  <time datetime="2018-02-27T00:00:00-03:00" pubdate>Tue 27 February 2018</time>
+    <address class="vcard author">
+      by <a class="url fn" href="/author/renata.html">Renata</a>
+    </address>
+  in <a href="/category/blog.html">blog</a>
+<p class="tags">tagged <a href="/tag/personal.html">personal</a>, <a href="/tag/outreachy.html">outreachy</a>, <a href="/tag/git.html">git</a>, <a href="/tag/development.html">development</a>, <a href="/tag/for-beginners.html">for beginners</a>, <a href="/tag/git-basics.html">git basics</a></p></div>
+		<p>This is a short story about how chosing to use git branches saved me from some trouble.</p>
+<h3>How did I decide to use a new branch?</h3>
+<p>Up until certain point, I was just commiting all the code (and notes) I wrote into the master branch, which is the default for Git. No big deal, if I broke something, I could just go back and revert one or more commits and it would be okay.</p>
+<p>It got to the point, though, that I would have send the code to people other than the mentors who had been seeing me breaking things: I would have to submit it for other developers to test it. While a broken code was the ideal for my mentors to see and help me in figuring out how to fix it, that wouldn't be useful for people seeing it in production and giving me feedback and suggestions for improvement. I had to send to them a good code that worked, and I had to do that while I worked on the last functionality needed, which is the recurrence rule for events.</p>
+<p>After working on the recurrence rule for a few hours I realized that, since it wasn't really functional yet, I couldn't simply commit it on top of the rest of the code that had already been commited/published. Sure, I could have commented the function and commited the code that way, but it would be just too much trouble to have to comment/uncomment it every time I would work on that part.</p>
+<p>That is how I chose to create a new git branch instead and starting commiting there the changes I had made.</p>
+<p>I created a new branch called "devel" and asked git to change to it:</p>
+<div class="highlight"><pre><span></span><code><span class="err">git checkout -b devel</span>
+</code></pre></div>
+
+
+<p>Then, I did a "git status" to check everything was as expected and the branch had been changed to devel:</p>
+<div class="highlight"><pre><span></span><code><span class="err">git status</span>
+<span class="err">renata@debian:~/foss_events$ git status</span>
+<span class="err">On branch devel</span>
+</code></pre></div>
+
+
+<p>Next: staging the files and <a href="https://git-scm.com/docs/git-commit">creating the commit</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="err">git add --all .</span>
+<span class="err">git commit -m &quot;COMMENTS FOR THE COMMIT&quot;</span>
+</code></pre></div>
+
+
+<p>Because the branch was created on my local machine, if I straight out try to just push the code upstream, it will give an error, because there is no "devel" branch on Github yet. So let's give some arguments to the git push command, asking it to set an upstream branch in the origin, which will receive the code:</p>
+<div class="highlight"><pre><span></span><code><span class="err">git push --set-upstream origin devel</span>
+</code></pre></div>
+
+
+<h3>How did this save me from some trouble?</h3>
+<p>Simply because, before I sent the code to the moin-devel list, I decided to clean out the repository of the old and repeated code... by deleting those files. I wanted to do that so anyone who came to try it out would be able to spot the macro easily and not to worry whether the other files had to be installed anywhere for the code to work.</p>
+<p>Once I had deleted those files using rm -r on the command line and right before I commited, I did a "git status" to check if the delete action had been recorded... that was when I noticed that I was still on the devel branch, and not on the master branch, where I wanted this change to take place! My development branch <em>should</em> stay the mess it was because it was stuff I used to try out.</p>
+<p>I had used "rm -r", though, so how did I get those files back to the devel branch? I mean, the easy way, not the downloading-the-repo-again way.</p>
+<p>Simple! I would have to <strong>discard</strong> the changes (deletes) I had made on the devel branch and change to the master branch to do it again:</p>
+<p><strong>BE CAREFUL, THIS COMMAND WILL DISCARD ANY CHANGES YOU HAVE MADE WHILE WORKING ON THE CURRENT BRANCH</strong></p>
+<div class="highlight"><pre><span></span><code><span class="err">git checkout -f</span>
+</code></pre></div>
+
+
+<p>This will throw away the changes. Then, it's possible to move back to the master branch:</p>
+<div class="highlight"><pre><span></span><code><span class="err">git checkout master</span>
+</code></pre></div>
+
+
+<p>And, yup, I'm totally writing this article for future reference to myself.</p>
+<h3>Read more</h3>
+<ul>
+<li><a href="https://guides.github.com/introduction/flow/">Understanding the GitHub Flow · GitHub Guides</a></li>
+</ul>
+
+	</article>
+	<hr>
+	<article>
+			<h2>Related posts</h2>
+		    <ul>
+			        <li><a href="/howto-use-the-ical.html">How to use the EventCalendar ical</a></li>
+			        <li><a href="/debugging-moinmoin-and-using-an-IDE.html">Debugging MoinMoin and using an IDE</a></li>
+		    </ul>
+			<hr>
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="rsip22" data-lang="en" data-size="large" data-related="rsip22">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		</section>
+
+		<aside>
+			<nav>
+				<h2>Categories</h2>
+				<ul>
+		              <li class="active"><a href="/category/blog.html">blog</a></li>
+				</ul>
+	        </nav>
+				<h2>Social</h2>
+			    <ul class="social">
+				  <li><a href="https://www.twitter.com/rsip22" title="Twitter">Twitter</a><i></i></li>
+				  <li><a href="https://www.github.com/rsip22" title="Github">Github</a><i></i></li>
+				  <li><a href="https://linkedin.com/in/rsip22" title="Linkedin">Linkedin</a><i></i></li>
+			    </ul>
+	            <h2>Blogroll</h2>
+	            <ul>
+	                <li><a href="https://rsip22.github.io/portfolio" title="My portfolio">My portfolio</a></li>
+	                <li><a href="http://outreachy.org/" title="Outreachy">Outreachy</a></li>
+	                <li><a href="https://pyladiespoa.pythonanywhere.com" title="PyLadies Porto Alegre">PyLadies Porto Alegre</a></li>
+	            </ul>
+		</aside>
+
+		<footer>
+			<p role="contentinfo" class="center">
+				The original content written by Renata has a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Other content may be subjected to other licenses.<br> Blog powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. Theme <a href="https://github.com/rsip22/pelican-simplegrey">pelican-simplegrey</a> with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> inspired code highlights.
+			</p>
+		</footer>
+	</body>
+</html>

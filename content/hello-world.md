@@ -7,7 +7,7 @@ Slug: hello-world
 Authors: Renata
 Summary: A bit about me
 
-![Renata's picture, a white woman profile. She touches her chin with her left hand fingertips]({filename}/img/author.png)
+![Renata's picture, a white woman profile. She touches her chin with her left hand fingertips]({static}/img/author.png)
 
 ## About me
 Hello, world! For those who are meeting me for the first time, I am a 31 year old History teacher from Porto Alegre, Brazil.

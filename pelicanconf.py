@@ -7,7 +7,7 @@ SITENAME = "Renata's blog"
 SITEURL = ''
 HTML_LANG = 'en'
 
-THEME = 'themes/pelican-simplegrey'
+THEME = './themes/pelican-simplegrey'
 # BOOTSTRAP_THEME = 'simplegrey'
 
 HIDE_CATEGORIES_FROM_MENU = True
@@ -21,27 +21,26 @@ TIMEZONE = 'America/Sao_Paulo'
 DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
+FEED_DOMAIN = SITEURL
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 FEED_ALL_RSS = 'feeds/all.rss.xml'
-# CATEGORY_FEED_ATOM = None
-# TRANSLATION_FEED_ATOM = None
-# AUTHOR_FEED_ATOM = None
-AUTHOR_FEED_RSS = 'feeds/%s.rss.xml'
 RSS_FEED_SUMMARY_ONLY = False
 
 PELICAN_SIMPLEGREY_TWITTER_CARD_ACCOUNT = 'rsip22'
 TWITTER_USERNAME = 'rsip22'
 
 OPEN_GRAPH_IMAGE = 'opengraph_600.jpg'
+STYLES_CSS_FILE = 'styles.css'
 
 # Blogroll
-LINKS = (('Outreachy', 'http://outreachy.org/'),
+LINKS = (('My portfolio', 'https://rsip22.github.io/portfolio'),
+         ('Outreachy', 'http://outreachy.org/'),
          ('PyLadies Porto Alegre', 'https://pyladiespoa.pythonanywhere.com'))
 
 # Social widget
-SOCIAL = (('Quitter', 'https://www.quitter.se/rsip22'),
-          ('Twitter', 'https://www.twitter.com/rsip22'),
-          ('Github', 'https://www.github.com/rsip22'),)
+SOCIAL = (('Twitter', 'https://www.twitter.com/rsip22'),
+          ('Github', 'https://www.github.com/rsip22'),
+          ('Linkedin', 'https://linkedin.com/in/rsip22'))
 
 DEFAULT_PAGINATION = 5
 

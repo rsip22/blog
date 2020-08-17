@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Not being perfect - Renata's blog</title>
+		<meta name="author" content="Renata">
+
+        <link rel="shortcut icon" type="image/png" href="/theme/images/icons/favicon.png"/>
+
+	<!-- Open Graph tags -->
+
+
+
+
+		<meta property="og:image"
+			  content="/img/opengraph_600.jpg"/>
+
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="Renata's blog - Not being perfect"/>
+		<meta property="og:url" content="/not-being-perfect.html"/>
+		<meta property="og:description" content="Things might not work out as we expect them to"/>
+
+
+	<meta name="description" content="Things might not work out as we expect them to">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@rsip22">
+	<meta name="twitter:title" content="Not being perfect">
+	<meta name="twitter:description" content="Things might not work out as we expect them to">
+	<meta name="twitter:url" content="/not-being-perfect.html">
+
+		<link rel="stylesheet" type="text/css" media="screen" href="/theme/css/screen.css"/>
+		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="/theme/css/pygments/native.css" type="text/css" />
+
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
+			<link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		
+		
+	  	<header>
+		    <div class="feeds">
+				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+		    </div>
+			<a href="" class="title" title="Renata's blog">Renata's blog</a>
+		</header>
+
+		<section>
+	<article class="full">
+
+		<h1>Not being perfect</h1>
+		<small><p title="~1449 words"><em>~ 6 min read</em></p></small>
+
+<div class="metadata">
+  <time datetime="2018-01-17T17:49:00-02:00" pubdate>Wed 17 January 2018</time>
+    <address class="vcard author">
+      by <a class="url fn" href="/author/renata.html">Renata</a>
+    </address>
+  in <a href="/category/blog.html">blog</a>
+<p class="tags">tagged <a href="/tag/personal.html">personal</a>, <a href="/tag/outreachy.html">outreachy</a>, <a href="/tag/development.html">development</a>, <a href="/tag/moinmoin-wiki.html">moinmoin-wiki</a></p></div>
+		<p>I know I am <em>very</em> late on this update (and also very late on emailing back my mentors). I am sorry. It took me a long time to figure out how to put into words everything that has been going on for the past few weeks.</p>
+<p>Let's begin with this: yes, I am so very aware there is an evaluation coming up (in two days) and that it is important "to have at least one piece of work that is visible in the week of evaluation" to show what I have been doing since the beginning of the internship.</p>
+<p>But the truth is: as of now, I don't have any code to show. And what that screams to me is that it means that I have failed. I didn't know what to say either to my mentors or in here to explain that I didn't meet everyone's expectations. That I had not been perfect.</p>
+<p>So I had to ask what could I learn from this and how could I keep going and working on this project?</p>
+<p>Coincidence or not, I was wondering that when I crossed paths (again) with one of the most amazing TED Talks there is:</p>
+<p><a href="https://www.ted.com/talks/reshma_saujani_teach_girls_bravery_not_perfection">Reshma Saujani's "Teach girls bravery, not perfection"</a></p>
+<p>And yes, that could be me. Even though I had written down almost every step I had taken trying to solve the problem I got stuck on, I wasn't ready to share all that, not even with my mentors (yes, I can see now how that isn't very helpful). I would rather let them go thinking I am lazy and didn't do anything all this time than to send all those notes about my failure and have them realize I didn't know what they expected me to know or... well, that they'd picked the wrong intern.</p>
+<h3>What was I trying to do?</h3>
+<p>As I talked about in my <a href="/blog/my-project-with-outreachy">previous post</a>, the EventCalendar macro seemed like a good place to start doing some work. I wanted to add a piece of code to it that would allow to export the events data to the iCalendar format. Because this is sort of what I did in <a href="/blog/my-contribution-to-github-icalendar">my contribution for the github-icalendar</a>) and because the mentor Daniel had suggested something like that, I thought that it would be a good way of getting myself familiarized to how macro development is done for MoinMoin wiki.</p>
+<h3>How far did I go?</h3>
+<p>As I had planned to do, I started by studying the EventMacro.py, to understand how it works, and taking notes.</p>
+<p>EventMacro fetches events from MoinMoin pages and uses Python's <a href="https://docs.python.org/2/library/pickle.html">Pickle module</a> to serialize and to de-serialize the data. This <em>should be</em> okay if you can trust enough the people editing the wiki (and, therefore, creating the events), but this might not be a good option if we start using external sources (such as third-party websites) for event data - at least, not directly on the data gathered. See the warning below, from the Pickle module docs:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Warning</span><span class="o">:</span> <span class="n">The</span> <span class="n">pickle</span> <span class="n">module</span> <span class="k">is</span> <span class="n">not</span> <span class="n">secure</span> <span class="n">against</span> <span class="n">erroneous</span> <span class="n">or</span> <span class="n">maliciously</span> <span class="n">constructed</span> <span class="n">data</span><span class="o">.</span> <span class="n">Never</span> <span class="n">unpickle</span> <span class="n">data</span> <span class="n">received</span> <span class="n">from</span> <span class="n">an</span> <span class="n">untrusted</span> <span class="n">or</span> <span class="n">unauthenticated</span> <span class="n">source</span><span class="o">.</span>
+</code></pre></div>
+
+
+<p>From the code and from the inputs from the mentors, I understand that EventMacro is more about <em>displaying</em> the events, putting them on a wiki page. Indeed, this could be helpful later on, but not exactly for the purpose we want now, which is to have some standalone application to gather data about the events, model this data in the way that we want it to be organized and maybe making it assessible by an API and/or exporting as JSON? <em>Then</em>, either MoinMoin or any other FOSS community project could chose how to display and make use of them.</p>
+<h3>What did go wrong?</h3>
+<p>But the thing is... even if I had studied the code, I couldn't see it running on my MoinMoin instance. I have tried and tried, but, generally speaking, I got stuck on trying to get macros to work. Standard macros, that come with MoinMoin, work perfectly. But macros from MacroMarket, I couldn't find a way to make them work.</p>
+<p>For the EventCalendar macro, I tried my best to follow the instructions on the <a href="https://moinmo.in/MacroMarket/EventCalendar#Installation_Guide">Instalation Guide</a> but I simply couldn't find a way for it to be processed.</p>
+<p>Things I did:</p>
+<ul>
+<li>I downloaded the macro file and renamed it to EventCalendar.py</li>
+<li>I put it in the local macro directory (yourwiki/data/plugins/macro) and proceeded with the rest of the instructions.</li>
+<li>When that didn't work, I copied the file to the global macro directory (MoinMoin/macro), it wasn't enough.</li>
+<li>I made sure to <a href="https://moinmo.in/MacroMarket/EventCalendar?action=AttachFile&amp;do=view&amp;target=eventcal-096.css">add the .css</a> to all styles, both for common.css and screen.css, still didn't work.</li>
+<li>I thought that maybe it was the arguments on the macro, so I tried to add it to the wiki page in the following ways:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;&lt;</span><span class="n">EventCalendar</span><span class="o">&gt;&gt;</span>
+
+<span class="o">&lt;&lt;</span><span class="n">EventCalendar</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="n">CategoryEventCalendar</span><span class="p">)</span><span class="o">&gt;&gt;</span>
+
+<span class="o">&lt;&lt;</span><span class="n">EventCalendar</span><span class="p">(,</span><span class="n">category</span><span class="o">=</span><span class="n">CategoryEventCalendar</span><span class="p">)</span><span class="o">&gt;&gt;</span>
+
+<span class="o">&lt;&lt;</span><span class="n">EventCalendar</span><span class="p">(,,</span><span class="n">category</span><span class="o">=</span><span class="n">CategoryEventCalendar</span><span class="p">)</span><span class="o">&gt;&gt;</span>
+</code></pre></div>
+
+
+<p>Still, the macro wasn't processed and appeared just like that on the page, even though I had already created pages with that category and added event info to them.</p>
+<p>To investigate, I tried using other macros:</p>
+<ul>
+<li>
+<p><a href="https://moinmo.in/HelpOnMacros">Hits</a>, a System Information macro</p>
+</li>
+<li>
+<p><a href="https://moinmo.in/HelpOnMacros/MonthCalendar">MonthCalendar</a></p>
+</li>
+<li>
+<p><a href="https://moinmo.in/macro/ShowSmileys.py">ShowSmileys</a></p>
+</li>
+</ul>
+<p>These all came with the MoinMoin core and they all worked.</p>
+<p>I tried other ones:</p>
+<ul>
+<li>
+<p><a href="https://moinmo.in/MacroMarket/SiteIndex">SiteIndex</a></p>
+</li>
+<li>
+<p><a href="https://moinmo.in/MacroMarket/EmbedContent">EmbedContent</a></p>
+</li>
+</ul>
+<p>That, just like EventCalendar, didn't work.</p>
+<p>Going through these macros also made me realize how awfully documented most of them usually are, in particular about the instalation and making it work with the whole system, even if the code is clear. (And to think that at the beginning of this whole thing I had to search and read up on what are <a href="https://www.python.org/dev/peps/pep-0257/">DocStrings</a> because the <a href="https://moinmo.in/CodingStyle">MoinMoin Coding Style</a> says: "That does NOT mean that there should be no docstrings.". Now it seems like some developers didn't know what DocStrings were either.)</p>
+<p>I checked permissions, but it couldn't be that, because the downloaded macros has the same permissions as the other macros and they all belong to the same user.</p>
+<p>I thought that maybe it was a problem with Python versions or even with the way MoinMoin instalation was done. So I tried some alternatives. First, I tried to install it again on a new CodeAnywhere Ubuntu container, but I still had the same problem.</p>
+<p>I tried with a local Debian instalation... same problem. Even though Ubuntu is based on Debian, the fact that macros didn't work on either was telling me that the problem wasn't necessarily the distribution, that it didn't matter which packages or libraries each of them come with. The problem seemed to be somewhere else.</p>
+<p>Then, I proceeded to analyze the Apache error log to see if I could figure out.</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">Thu</span> <span class="n">Jan</span> <span class="mi">11</span> <span class="mo">00</span><span class="o">:</span><span class="mi">33</span><span class="o">:</span><span class="mf">28.230387</span> <span class="mi">2018</span><span class="p">]</span> <span class="p">[</span><span class="nl">wsgi</span><span class="p">:</span><span class="n">error</span><span class="p">]</span> <span class="p">[</span><span class="n">pid</span> <span class="mi">5845</span><span class="o">:</span><span class="n">tid</span> <span class="mi">139862907651840</span><span class="p">]</span> <span class="p">[</span><span class="n">remote</span> <span class="o">::</span><span class="mi">1</span><span class="o">:</span><span class="mi">43998</span><span class="p">]</span> <span class="mi">2018</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">11</span> <span class="mo">00</span><span class="o">:</span><span class="mi">33</span><span class="o">:</span><span class="mi">28</span><span class="p">,</span><span class="mi">229</span> <span class="n">WARNING</span> <span class="n">MoinMoin</span><span class="p">.</span><span class="nl">log</span><span class="p">:</span><span class="mi">112</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">MoinMoin</span><span class="o">/</span><span class="n">support</span><span class="o">/</span><span class="n">werkzeug</span><span class="o">/</span><span class="n">filesystem</span><span class="p">.</span><span class="nl">py</span><span class="p">:</span><span class="mi">63</span><span class="o">:</span> <span class="nl">BrokenFilesystemWarning</span><span class="p">:</span> <span class="n">Detected</span> <span class="n">a</span> <span class="n">misconfigured</span> <span class="n">UNIX</span> <span class="nl">filesystem</span><span class="p">:</span> <span class="n">Will</span> <span class="n">use</span> <span class="n">UTF</span><span class="o">-</span><span class="mi">8</span> <span class="n">as</span> <span class="n">filesystem</span> <span class="n">encoding</span> <span class="n">instead</span> <span class="n">of</span> <span class="err">&#39;</span><span class="n">ANSI_X3</span><span class="mf">.4</span><span class="o">-</span><span class="mi">1968</span><span class="err">&#39;</span>
+
+<span class="p">[</span><span class="n">Thu</span> <span class="n">Jan</span> <span class="mi">11</span> <span class="mo">00</span><span class="o">:</span><span class="mi">34</span><span class="o">:</span><span class="mf">11.089031</span> <span class="mi">2018</span><span class="p">]</span> <span class="p">[</span><span class="nl">wsgi</span><span class="p">:</span><span class="n">error</span><span class="p">]</span> <span class="p">[</span><span class="n">pid</span> <span class="mi">5840</span><span class="o">:</span><span class="n">tid</span> <span class="mi">139862941255424</span><span class="p">]</span> <span class="p">[</span><span class="n">remote</span> <span class="o">::</span><span class="mi">1</span><span class="o">:</span><span class="mi">44010</span><span class="p">]</span> <span class="mi">2018</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">11</span> <span class="mo">00</span><span class="o">:</span><span class="mi">34</span><span class="o">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">088</span> <span class="n">INFO</span> <span class="n">MoinMoin</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="nl">multiconfig</span><span class="p">:</span><span class="mi">127</span> <span class="n">using</span> <span class="n">wiki</span> <span class="nl">config</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">moin</span><span class="o">/</span><span class="n">wikiconfig</span><span class="p">.</span><span class="n">pyc</span>
+</code></pre></div>
+
+
+<p>Alright, the wikiconfig.py wasn't actually set to utf-8, my bad. I fixed and re-read it again to make sure I hadn't missed anything this time. I restarted the server and... nope, macros still don't work.</p>
+<p>So, misconfigured UNIX filesystem? Not quite sure what was that, but I searched for it and it seemed to be easily solved generating an en_US.UTF-8 <a href="https://wiki.debian.org/Locale">Locale</a> and/or setting it, right?</p>
+<p>Well, these errors really did go away... but even after restarting the apache server, those macros still wouldn't work.</p>
+<p>So this is how things went up until today. It ends up with me not having a clue where else to look to try and fix the macros and make them work so I could start coding and having some results... or does it?</p>
+<h3>This was a post about a failure, but...</h3>
+<p>Whoever wrote that "often times writing a blog post will help you find the solution you're working on" on the e-mail we received when we where accepted for Outreachy... <em>damn</em>, you were right.</p>
+<p>I opened the command history to get my MoinMoin instance running again, so I could verify that the names of the macros that worked and which ones didn't were correct for this post, when...</p>
+<p><em>I cannot believe I couldn't figure out.</em></p>
+<p>What had been happening all this time? Yes, the .py macro file should go to moin/data/plugin/macro, but not on the directories I was putting them. I didn't realize that all this time, the wiki wasn't actually installed on the directory yourwiki/data/plugins/macro where the extracted source code is. It is installed on /usr/local/share/, so the files should be put on /usr/local/share/moin/data/plugin/macro and <em>of course</em> I should've realized this sooner, after all, I was the one to install it, but... it happens.</p>
+<p>I copied the files there, set the appropriate owner and... IT-- WORKED!</p>
+<p><img alt="Mozilla Firefox screenshot showing MoinMoin wiki with the EventCalendar plugin working and displaying a calendar for January 2018" src="/img/eventcalendar_working.png"></p>
+
+	</article>
+	<hr>
+	<article>
+			<h2>Related posts</h2>
+		    <ul>
+			        <li><a href="/howto-use-the-ical.html">How to use the EventCalendar ical</a></li>
+			        <li><a href="/debugging-moinmoin-and-using-an-IDE.html">Debugging MoinMoin and using an IDE</a></li>
+		    </ul>
+			<hr>
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="rsip22" data-lang="en" data-size="large" data-related="rsip22">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		</section>
+
+		<aside>
+			<nav>
+				<h2>Categories</h2>
+				<ul>
+		              <li class="active"><a href="/category/blog.html">blog</a></li>
+				</ul>
+	        </nav>
+				<h2>Social</h2>
+			    <ul class="social">
+				  <li><a href="https://www.twitter.com/rsip22" title="Twitter">Twitter</a><i></i></li>
+				  <li><a href="https://www.github.com/rsip22" title="Github">Github</a><i></i></li>
+				  <li><a href="https://linkedin.com/in/rsip22" title="Linkedin">Linkedin</a><i></i></li>
+			    </ul>
+	            <h2>Blogroll</h2>
+	            <ul>
+	                <li><a href="https://rsip22.github.io/portfolio" title="My portfolio">My portfolio</a></li>
+	                <li><a href="http://outreachy.org/" title="Outreachy">Outreachy</a></li>
+	                <li><a href="https://pyladiespoa.pythonanywhere.com" title="PyLadies Porto Alegre">PyLadies Porto Alegre</a></li>
+	            </ul>
+		</aside>
+
+		<footer>
+			<p role="contentinfo" class="center">
+				The original content written by Renata has a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Other content may be subjected to other licenses.<br> Blog powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. Theme <a href="https://github.com/rsip22/pelican-simplegrey">pelican-simplegrey</a> with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> inspired code highlights.
+			</p>
+		</footer>
+	</body>
+</html>

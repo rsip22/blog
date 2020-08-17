@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Pushing a commit to a different repo - Renata's blog</title>
+		<meta name="author" content="Renata">
+
+        <link rel="shortcut icon" type="image/png" href="/theme/images/icons/favicon.png"/>
+
+	<!-- Open Graph tags -->
+
+
+
+
+		<meta property="og:image"
+			  content="/img/opengraph_600.jpg"/>
+
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="Renata's blog - Pushing a commit to a different repo"/>
+		<meta property="og:url" content="/pushing-a-commit-to-a-different-repo.html"/>
+		<meta property="og:description" content="How to push a commit to a different repo"/>
+
+
+	<meta name="description" content="How to push a commit to a different repo">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@rsip22">
+	<meta name="twitter:title" content="Pushing a commit to a different repo">
+	<meta name="twitter:description" content="How to push a commit to a different repo">
+	<meta name="twitter:url" content="/pushing-a-commit-to-a-different-repo.html">
+
+		<link rel="stylesheet" type="text/css" media="screen" href="/theme/css/screen.css"/>
+		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="/theme/css/pygments/native.css" type="text/css" />
+
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
+			<link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		
+		
+	  	<header>
+		    <div class="feeds">
+				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+		    </div>
+			<a href="" class="title" title="Renata's blog">Renata's blog</a>
+		</header>
+
+		<section>
+	<article class="full">
+
+		<h1>Pushing a commit to a different repo</h1>
+		<small><p title="~428 words"><em>~ 2 min read</em></p></small>
+
+<div class="metadata">
+  <time datetime="2018-03-23T00:49:00-03:00" pubdate>Fri 23 March 2018</time>
+    <address class="vcard author">
+      by <a class="url fn" href="/author/renata.html">Renata</a>
+    </address>
+  in <a href="/category/blog.html">blog</a>
+<p class="tags">tagged <a href="/tag/personal.html">personal</a>, <a href="/tag/git.html">git</a>, <a href="/tag/github.html">github</a>, <a href="/tag/djangogirls.html">djangogirls</a></p></div>
+		<p><img alt="Photo taken from the top of a hill, overlooking light green ocean beaches" src="/img/trilha_da_galheta_florianopolis.JPG"></p>
+<p><em>View from the Barra-Galheta beach trail, in Florianopolis, Brazil</em></p>
+<p>My Outreachy internship with Debian is over. I'm still going to write an article about it, to let everyone know what I worked on towards the ending, but I simply didn't have the time yet to sit down and compile all the information.</p>
+<p>As you might or might not have noticed, right after my last Outreachy activity, I sort of took a week off in the beach. \o/</p>
+<p><img alt="Renata's picture, a white woman sitting on the grass, overlooking the beach below. She pets a brown stray that sits next to her" src="/img/renata_with_dog.JPG"></p>
+<p><em>Mila, a cute stray dog that accompanied us during a whole trail</em></p>
+<p>For the past weeks, I've also been involved in the organization of three events (one of them was a <a href="https://debianwomenbr.github.io">Debian Women meeting in Curitiba</a> that took place two Saturdays ago and another one is <a href="https://djangogirls.org/portoalegre/">Django Girls Porto Alegre</a>, which starts tonight). Because of this last one, I was reviewing their <a href="https://tutorial.djangogirls.org/pt">Brazilian Portuguese tutorial</a> and adding some small fixes to the language. After all, we are talking to women who read the tutorial during the workshop, so why all the mentions to programmers and hackers and such should mention the male counterpart in Portuguese? Women program, too!</p>
+<p>When I was going to commit my fixes, though, I got an error:</p>
+<div class="highlight"><pre><span></span><code><span class="nl">remote</span><span class="p">:</span> <span class="nl">error</span><span class="p">:</span> <span class="nl">GH006</span><span class="p">:</span> <span class="n">Protected</span> <span class="n">branch</span> <span class="n">update</span> <span class="n">failed</span> <span class="k">for</span> <span class="n">refs</span><span class="o">/</span><span class="n">heads</span><span class="o">/</span><span class="n">master</span><span class="p">.</span>
+<span class="n">To</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/DjangoGirls/tutorial</span>
+<span class="o">!</span> <span class="p">[</span><span class="n">remote</span> <span class="n">rejected</span><span class="p">]</span>   <span class="n">master</span> <span class="o">-&gt;</span> <span class="n">master</span> <span class="p">(</span><span class="n">protected</span> <span class="n">branch</span> <span class="n">hook</span> <span class="n">declined</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Oops?</p>
+<p>Yup, as it so happens more often than not, I forgot to fork the repository before starting to change the files! I just did 'git clone' straight to Django Girls' tutorial repository. But, since I had already done all the steps towards the commit, what could I do to avoid losing the changes? Could I just push this commit to another repository of my own and try and open a Pull Request to DjangoGirls/tutorial?</p>
+<p>Of course I had to go and search for that. Isn't that what all programmers do? Go and find someone else who already had the same problem they have to try and <a href="https://stackoverflow.com/questions/15616133/pushing-a-commit-from-one-repository-into-another-repository">find a solution</a>?</p>
+<p>Quick guide to the solution I've found:</p>
+<ul>
+<li>
+<p>Fork the original repository to my collection of repos (on Github, just clicking 'Fork' will do).</p>
+</li>
+<li>
+<p>Get the branch and the id of the commit that had been created. For instance, on this case:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="err">[master 4d314550] Small fixes for pt-br version</span>
+</code></pre></div>
+
+
+<p>The branch is: master</p>
+<p>The id is: 4d314550</p>
+<ul>
+<li>Use the URL for the new repository (your fork), the branch and the commit id for a new git push command, like this:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="err">git push URL_FOR_THE_NEW_REPO commit_id:branch</span>
+</code></pre></div>
+
+
+<p>Example with my repo:</p>
+<div class="highlight"><pre><span></span><code><span class="err">git push https://github.com/rsip22/tutorial 4d314550:master</span>
+</code></pre></div>
+
+
+<p>And this was yet another article for future reference.</p>
+
+	</article>
+	<hr>
+	<article>
+			<h2>Related posts</h2>
+		    <ul>
+			        <li><a href="/git-branch-the-best-decision-I-made.html">Working with git branches was the best decision I made</a></li>
+			        <li><a href="/achievement-unlocked-I-spoke-at-PythonBrasil-14.html">Achievement unlocked! I spoke at PythonBrasil[14]</a></li>
+		    </ul>
+			<hr>
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="rsip22" data-lang="en" data-size="large" data-related="rsip22">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		</section>
+
+		<aside>
+			<nav>
+				<h2>Categories</h2>
+				<ul>
+		              <li class="active"><a href="/category/blog.html">blog</a></li>
+				</ul>
+	        </nav>
+				<h2>Social</h2>
+			    <ul class="social">
+				  <li><a href="https://www.twitter.com/rsip22" title="Twitter">Twitter</a><i></i></li>
+				  <li><a href="https://www.github.com/rsip22" title="Github">Github</a><i></i></li>
+				  <li><a href="https://linkedin.com/in/rsip22" title="Linkedin">Linkedin</a><i></i></li>
+			    </ul>
+	            <h2>Blogroll</h2>
+	            <ul>
+	                <li><a href="https://rsip22.github.io/portfolio" title="My portfolio">My portfolio</a></li>
+	                <li><a href="http://outreachy.org/" title="Outreachy">Outreachy</a></li>
+	                <li><a href="https://pyladiespoa.pythonanywhere.com" title="PyLadies Porto Alegre">PyLadies Porto Alegre</a></li>
+	            </ul>
+		</aside>
+
+		<footer>
+			<p role="contentinfo" class="center">
+				The original content written by Renata has a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Other content may be subjected to other licenses.<br> Blog powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. Theme <a href="https://github.com/rsip22/pelican-simplegrey">pelican-simplegrey</a> with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> inspired code highlights.
+			</p>
+		</footer>
+	</body>
+</html>

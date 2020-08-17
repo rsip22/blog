@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Debugging MoinMoin and using an IDE - Renata's blog</title>
+		<meta name="author" content="Renata">
+
+        <link rel="shortcut icon" type="image/png" href="/theme/images/icons/favicon.png"/>
+
+	<!-- Open Graph tags -->
+
+
+
+
+		<meta property="og:image"
+			  content="/img/opengraph_600.jpg"/>
+
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="Renata's blog - Debugging MoinMoin and using an IDE"/>
+		<meta property="og:url" content="/debugging-moinmoin-and-using-an-IDE.html"/>
+		<meta property="og:description" content="How using an IDE helped me to debug"/>
+
+
+	<meta name="description" content="How using an IDE helped me to debug">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@rsip22">
+	<meta name="twitter:title" content="Debugging MoinMoin and using an IDE">
+	<meta name="twitter:description" content="How using an IDE helped me to debug">
+	<meta name="twitter:url" content="/debugging-moinmoin-and-using-an-IDE.html">
+
+		<link rel="stylesheet" type="text/css" media="screen" href="/theme/css/screen.css"/>
+		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="/theme/css/pygments/native.css" type="text/css" />
+
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
+			<link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		
+		
+	  	<header>
+		    <div class="feeds">
+				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+		    </div>
+			<a href="" class="title" title="Renata's blog">Renata's blog</a>
+		</header>
+
+		<section>
+	<article class="full">
+
+		<h1>Debugging MoinMoin and using an IDE</h1>
+		<small><p title="~680 words"><em>~ 3 min read</em></p></small>
+
+<div class="metadata">
+  <time datetime="2018-02-14T17:19:00-02:00" pubdate>Wed 14 February 2018</time>
+    <address class="vcard author">
+      by <a class="url fn" href="/author/renata.html">Renata</a>
+    </address>
+  in <a href="/category/blog.html">blog</a>
+<p class="tags">tagged <a href="/tag/personal.html">personal</a>, <a href="/tag/outreachy.html">outreachy</a>, <a href="/tag/development.html">development</a>, <a href="/tag/eclipse.html">eclipse</a>, <a href="/tag/python.html">python</a>, <a href="/tag/moinmoin-wiki.html">moinmoin-wiki</a></p></div>
+		<h3>Debugging</h3>
+<p>When I was creating the cal_action, I didn't quite know how to debug MoinMoin. Could I use pudb with the wiki? I wasn't sure how. To figure out if the code I was writing worked, I ended up consulting the error logs from Apache. It sort of worked, but of course that was <em>very far</em> from the ideal. What if I wanted to check something that wasn't an error?</p>
+<p>Well, MoinMoin supposedly has a logging module, that lives on <code>moin-1.V.V/wiki/config/logging/</code>, but I simply couldn't get it to work as I wanted.</p>
+<p>I searched some more and found a guide on <a href="https://moinmo.in/DebugWithWinpdb">setting up Winpdb Source Level Debugger</a>, but I don't use Windows (really, where is the GNU/Linux guide to debug?), so that didn't help. &#128557;</p>
+<p><em>But</em>... MoinMoin does offer a <a href="https://moinmo.in/EclipseDevelopmentEnvironment">guide on setting up a development enviroment with Eclipse</a> that I ended up following.</p>
+<h3>Using an IDE</h3>
+<p>Up until this point, most of the code I created in Python where simple scripts that could be ran and debugged in the terminal. I had used <a href="https://docs.python.org/2/library/idle.html">IDLE</a> while I was taking the <a href="https://www.pycursos.com/python-para-zumbis/">Python para Zumbis</a> (Python for Zombies) course, but other than that, I just used a code editor (Sublime, then Vim and, finally, Atom) when programming in Python.</p>
+<p>When I was taking a tech vocational course, I used Eclipse, an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">Integrated development environment, or IDE</a> to code in Java, but that was it. After I passed the course and didn't need to code in Java again, I simply let go of the IDE.</p>
+<p>As it turns out, going back to Eclipse, along with the <a href="http://www.pydev.org/">PyDev plugin</a> - both free software - was what actually helped me in debugging and figuring my way around the MoinMoin macro.</p>
+<p>The steps I had to take:</p>
+<ol>
+<li>Install eclipse-pydev and it's dependencies using Synaptic (Debian package manager)</li>
+<li>Define Python 2.7 as the interpreter in preferences</li>
+<li>Create a new workspace</li>
+<li>Create a new project</li>
+<li>Import the installed MoinMoin into the new project</li>
+<li>Configure the new wiki</li>
+<li>Run wikiserver.py</li>
+</ol>
+<p>To develop the plugins (macro and actions):</p>
+<ol>
+<li>Create a new workdir for the Plugins, that goes alongsite Moin</li>
+<li>Copy the contents from the plugin directory of the wiki to the new directory</li>
+</ol>
+<p>On step 2, though, instead of copying I just created a symbolic link to the files I had been working on that where in another directory. It would make no sense to have two copies of the same file in different places in the computer - besides, it would just complicate tracking what changes had been made ans where. To create a symbolic link:</p>
+<div class="highlight"><pre><span></span><code>$ ln -s PATH-TO-THE-ORIGINAL-FILE PATH-TO-THE-DESTINATION/FILE_ON_DESTINATION
+</code></pre></div>
+
+
+<p>More on <a href="https://wiki.debian.org/SymLink">symbolic links</a> can be found using the command <code>man ln</code> on Debian's terminal.</p>
+<p>With the Eclipse console, I could use <code>print help(request)</code> to figure out what methods would be available to me with the request provided by the macro. With this, I finally began to figure out how to create the response we want (without returning the whole wiki page with it, just the event information in the icalendar format).</p>
+<p><img alt="Eclipse IDE running the wikiserver.py from MoinMoin and showing the debug output in a terminal" src="/img/moin_with_eclipse.png"></p>
+<p>If you don't know what I mean with request/response: in simple terms, when you click something on a webpage (for instance, my ical link in the bottom of the calendar) in your internet browser, you are <em>requesting</em> a resource (the icalendar file). It's up to the server to <em>respond</em> with the appropriate resource (the file) or with an status code explaining why it can't fulfill your request (for instance, you get an 404 error when the page - resource - you're trying to access - <em>requesting</em> - can't be found).</p>
+<p><img alt="A simplified diagram of a static web server showing the request-response cycle." src="https://mdn.mozillademos.org/files/13841/Basic%20Static%20App%20Server.png"></p>
+<p>Here you can find more information on <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview">client-Server overview, by Mozilla web docs</a>.</p>
+<p>So now I'm working on constructing that response. Thanks to the Eclipse console, now I know that just trying to use the response.write() method with the return value of my method I get a <code>TypeError: Expected bytes</code>. I will probably have to transform the result of the method to generate the icalendar into bytes instead of InstanceClass. Well, at least I can say that the choices that have been made when writing the ExportPDF macro come to me more clearly now.</p>
+
+	</article>
+	<hr>
+	<article>
+			<h2>Related posts</h2>
+		    <ul>
+			        <li><a href="/howto-use-the-ical.html">How to use the EventCalendar ical</a></li>
+			        <li><a href="/not-being-perfect.html">Not being perfect</a></li>
+		    </ul>
+			<hr>
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="rsip22" data-lang="en" data-size="large" data-related="rsip22">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		</section>
+
+		<aside>
+			<nav>
+				<h2>Categories</h2>
+				<ul>
+		              <li class="active"><a href="/category/blog.html">blog</a></li>
+				</ul>
+	        </nav>
+				<h2>Social</h2>
+			    <ul class="social">
+				  <li><a href="https://www.twitter.com/rsip22" title="Twitter">Twitter</a><i></i></li>
+				  <li><a href="https://www.github.com/rsip22" title="Github">Github</a><i></i></li>
+				  <li><a href="https://linkedin.com/in/rsip22" title="Linkedin">Linkedin</a><i></i></li>
+			    </ul>
+	            <h2>Blogroll</h2>
+	            <ul>
+	                <li><a href="https://rsip22.github.io/portfolio" title="My portfolio">My portfolio</a></li>
+	                <li><a href="http://outreachy.org/" title="Outreachy">Outreachy</a></li>
+	                <li><a href="https://pyladiespoa.pythonanywhere.com" title="PyLadies Porto Alegre">PyLadies Porto Alegre</a></li>
+	            </ul>
+		</aside>
+
+		<footer>
+			<p role="contentinfo" class="center">
+				The original content written by Renata has a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Other content may be subjected to other licenses.<br> Blog powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. Theme <a href="https://github.com/rsip22/pelican-simplegrey">pelican-simplegrey</a> with <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> inspired code highlights.
+			</p>
+		</footer>
+	</body>
+</html>
