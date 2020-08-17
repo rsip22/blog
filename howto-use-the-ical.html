@@ -5,7 +5,7 @@
 		<title>How to use the EventCalendar ical - Renata's blog</title>
 		<meta name="author" content="Renata">
 
-        <link rel="shortcut icon" type="image/png" href="/theme/images/icons/favicon.png"/>
+        <link rel="shortcut icon" type="image/png" href="https://rsip22.github.io/blog/theme/images/icons/favicon.png"/>
 
 	<!-- Open Graph tags -->
 
@@ -13,11 +13,11 @@
 
 
 		<meta property="og:image"
-			  content="/img/opengraph_600.jpg"/>
+			  content="https://rsip22.github.io/blog/img/opengraph_600.jpg"/>
 
 		<meta property="og:type" content="article"/>
 		<meta property="og:title" content="Renata's blog - How to use the EventCalendar ical"/>
-		<meta property="og:url" content="/howto-use-the-ical.html"/>
+		<meta property="og:url" content="https://rsip22.github.io/blog/howto-use-the-ical.html"/>
 		<meta property="og:description" content="A summary of the improvent to EventCalendar and how to use it"/>
 
 
@@ -27,11 +27,11 @@
 	<meta name="twitter:creator" content="@rsip22">
 	<meta name="twitter:title" content="How to use the EventCalendar ical">
 	<meta name="twitter:description" content="A summary of the improvent to EventCalendar and how to use it">
-	<meta name="twitter:url" content="/howto-use-the-ical.html">
+	<meta name="twitter:url" content="https://rsip22.github.io/blog/howto-use-the-ical.html">
 
-		<link rel="stylesheet" type="text/css" media="screen" href="/theme/css/screen.css"/>
-		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
-		<link rel="stylesheet" href="/theme/css/pygments/native.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="https://rsip22.github.io/blog/theme/css/screen.css"/>
+		<link rel="stylesheet" href="https://rsip22.github.io/blog/theme/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="https://rsip22.github.io/blog/theme/css/pygments/native.css" type="text/css" />
 
 			<link href="https://rsip22.github.io/blog//feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
 			<link href="https://rsip22.github.io/blog//feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
@@ -43,8 +43,8 @@
 		
 	  	<header>
 		    <div class="feeds">
-				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
-	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+				<a href="https://rsip22.github.io/blog/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="https://rsip22.github.io/blog/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="https://rsip22.github.io/blog/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="https://rsip22.github.io/blog/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
 		    </div>
 			<a href="https://rsip22.github.io/blog/" class="title" title="Renata's blog">Renata's blog</a>
 		</header>
@@ -58,24 +58,24 @@
 <div class="metadata">
   <time datetime="2018-02-21T19:49:00-03:00" pubdate>Wed 21 February 2018</time>
     <address class="vcard author">
-      by <a class="url fn" href="/author/renata.html">Renata</a>
+      by <a class="url fn" href="https://rsip22.github.io/blog/author/renata.html">Renata</a>
     </address>
-  in <a href="/category/blog.html">blog</a>
-<p class="tags">tagged <a href="/tag/personal.html">personal</a>, <a href="/tag/outreachy.html">outreachy</a>, <a href="/tag/development.html">development</a>, <a href="/tag/moinmoin-wiki.html">moinmoin-wiki</a>, <a href="/tag/icalendar.html">icalendar</a>, <a href="/tag/eventcalendar.html">eventcalendar</a></p></div>
+  in <a href="https://rsip22.github.io/blog/category/blog.html">blog</a>
+<p class="tags">tagged <a href="https://rsip22.github.io/blog/tag/personal.html">personal</a>, <a href="https://rsip22.github.io/blog/tag/outreachy.html">outreachy</a>, <a href="https://rsip22.github.io/blog/tag/development.html">development</a>, <a href="https://rsip22.github.io/blog/tag/moinmoin-wiki.html">moinmoin-wiki</a>, <a href="https://rsip22.github.io/blog/tag/icalendar.html">icalendar</a>, <a href="https://rsip22.github.io/blog/tag/eventcalendar.html">eventcalendar</a></p></div>
 		<p>Hello!</p>
 <p>If you follow this blog, you should probably know by now that I have been working with my mentors to contribute to MoinMoin EventCalendar macro, adding the possility to export the events' data to an icalendar file.</p>
-<p><img alt="A screenshot of the code, with the function definition for creating the ical file from events from the macro" src="/img/create_ical.png"></p>
+<p><img alt="A screenshot of the code, with the function definition for creating the ical file from events from the macro" src="https://rsip22.github.io/blog/img/create_ical.png"></p>
 <p>The code (<a href="https://github.com/rsip22/foss_events/blob/master/macro/EventCalendar-099b.py">which can be found on this Github repository</a>) isn't quite ready yet, because I'm still working to convert the recurrence rule to the icalendar format, but other than that, it should be working. Hopefully.</p>
 <p>This guide assumes that you have the
 <a href="https://moinmo.in/MacroMarket/EventCalendar">EventCalendar</a> macro installed on the wiki and that the macro is called on a determined wikipage.</p>
 <p>The icalendar file is now generated as an attachment the moment the macro is loaded. I created an "ical" link at the bottom of the calendar. When activated, this link prompts the download of the ical attachment of the page. Being an attachment, there is still the possibility to just view ical the file using the "attachment" menu if the user wishes to do so.</p>
-<p><img alt="Wiki page showing the calendar, with the 'ical' link at the bottom" src="/img/eventcalendar_with_ical_menu.png"></p>
+<p><img alt="Wiki page showing the calendar, with the 'ical' link at the bottom" src="https://rsip22.github.io/blog/img/eventcalendar_with_ical_menu.png"></p>
 <p>There are two ways of importing this calendar on Thunderbird. The first one is to download the file by clicking on the link and then proceeding to import it manually to Thunderbird.</p>
-<p><img alt="Thunderbird screenshot, with the menus &quot;Events and Tasks&quot; and &quot;Import&quot; selected" src="/img/events_and_tasks_import.png"></p>
+<p><img alt="Thunderbird screenshot, with the menus &quot;Events and Tasks&quot; and &quot;Import&quot; selected" src="https://rsip22.github.io/blog/img/events_and_tasks_import.png"></p>
 <p>The second option is to "Create a new calendar / On the network" and to use the URL address from the ical link as the "location", as it is shown below:</p>
-<p><img alt="Thunderbird screenshot, showing the new calendar dialog and the ical URL pasted into the &quot;location&quot; textboxd" src="/img/thunderbird_new_calendar_location.png"></p>
+<p><img alt="Thunderbird screenshot, showing the new calendar dialog and the ical URL pasted into the &quot;location&quot; textboxd" src="https://rsip22.github.io/blog/img/thunderbird_new_calendar_location.png"></p>
 <p>As usual, it's possible to customize the name for the calendar, the color for the events and such...</p>
-<p><img alt="Thunderbird screenshot, showing the new calendar with it's events" src="/img/ical_imported_to_thunderbird.png"></p>
+<p><img alt="Thunderbird screenshot, showing the new calendar with it's events" src="https://rsip22.github.io/blog/img/ical_imported_to_thunderbird.png"></p>
 <p>I noticed a few Wikis that use the EventCalendar, such as <a href="https://wiki.debian.org">Debian wiki</a> itself and the <a href="http://wiki.fsfe.org">FSFE wiki</a>. <a href="https://wiki.python.org/moin/PythonEventsCalendar#Python_Events_Calendar">Python wiki</a> also seems to be using MoinMoin and EventCalendar, but it seems that they use a Google service to export the event data do iCal.</p>
 <p>If you read this and are willing to try the code in your wiki and give me feedback, I would really appreciate. You can find the ways to contact me in my <a href="https://wiki.debian.org/RenataDAvila">Debian Wiki profile</a>.</p>
 
@@ -84,8 +84,8 @@
 	<article>
 			<h2>Related posts</h2>
 		    <ul>
-			        <li><a href="/exporting-eventcalendar-data-to-ical.html">Exporting EventCalendar data to ical</a></li>
-			        <li><a href="/debugging-moinmoin-and-using-an-IDE.html">Debugging MoinMoin and using an IDE</a></li>
+			        <li><a href="https://rsip22.github.io/blog/exporting-eventcalendar-data-to-ical.html">Exporting EventCalendar data to ical</a></li>
+			        <li><a href="https://rsip22.github.io/blog/debugging-moinmoin-and-using-an-IDE.html">Debugging MoinMoin and using an IDE</a></li>
 		    </ul>
 			<hr>
 	</article>
@@ -102,7 +102,7 @@
 			<nav>
 				<h2>Categories</h2>
 				<ul>
-		              <li class="active"><a href="/category/blog.html">blog</a></li>
+		              <li class="active"><a href="https://rsip22.github.io/blog/category/blog.html">blog</a></li>
 				</ul>
 	        </nav>
 				<h2>Social</h2>
