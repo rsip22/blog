@@ -5,7 +5,7 @@
 		<title>Debugging MoinMoin and using an IDE - Renata's blog</title>
 		<meta name="author" content="Renata">
 
-        <link rel="shortcut icon" type="image/png" href="/theme/images/icons/favicon.png"/>
+        <link rel="shortcut icon" type="image/png" href="https://rsip22.github.io/blog/theme/images/icons/favicon.png"/>
 
 	<!-- Open Graph tags -->
 
@@ -13,11 +13,11 @@
 
 
 		<meta property="og:image"
-			  content="/img/opengraph_600.jpg"/>
+			  content="https://rsip22.github.io/blog/img/opengraph_600.jpg"/>
 
 		<meta property="og:type" content="article"/>
 		<meta property="og:title" content="Renata's blog - Debugging MoinMoin and using an IDE"/>
-		<meta property="og:url" content="/debugging-moinmoin-and-using-an-IDE.html"/>
+		<meta property="og:url" content="https://rsip22.github.io/blog/debugging-moinmoin-and-using-an-IDE.html"/>
 		<meta property="og:description" content="How using an IDE helped me to debug"/>
 
 
@@ -27,14 +27,14 @@
 	<meta name="twitter:creator" content="@rsip22">
 	<meta name="twitter:title" content="Debugging MoinMoin and using an IDE">
 	<meta name="twitter:description" content="How using an IDE helped me to debug">
-	<meta name="twitter:url" content="/debugging-moinmoin-and-using-an-IDE.html">
+	<meta name="twitter:url" content="https://rsip22.github.io/blog/debugging-moinmoin-and-using-an-IDE.html">
 
-		<link rel="stylesheet" type="text/css" media="screen" href="/theme/css/screen.css"/>
-		<link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
-		<link rel="stylesheet" href="/theme/css/pygments/native.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="https://rsip22.github.io/blog/theme/css/screen.css"/>
+		<link rel="stylesheet" href="https://rsip22.github.io/blog/theme/css/main.css" type="text/css" />
+		<link rel="stylesheet" href="https://rsip22.github.io/blog/theme/css/pygments/native.css" type="text/css" />
 
-			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
-			<link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
+			<link href="https://rsip22.github.io/blog//feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Renata's blog Atom Feed" />
+			<link href="https://rsip22.github.io/blog//feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Renata's blog RSS Feed" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
 
@@ -43,10 +43,10 @@
 		
 	  	<header>
 		    <div class="feeds">
-				<a href="/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
-	            <a href="/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
+				<a href="https://rsip22.github.io/blog/feeds/all.atom.xml" rel="alternate" title="Renata's blog Atom Feed"><img src="https://rsip22.github.io/blog/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
+	            <a href="https://rsip22.github.io/blog/feeds/all.rss.xml" rel="alternate" title="Renata's blog RSS Feed"><img src="https://rsip22.github.io/blog/theme/images/icons/feed-32px.png" alt="rss feed"/></a>
 		    </div>
-			<a href="" class="title" title="Renata's blog">Renata's blog</a>
+			<a href="https://rsip22.github.io/blog/" class="title" title="Renata's blog">Renata's blog</a>
 		</header>
 
 		<section>
@@ -58,10 +58,10 @@
 <div class="metadata">
   <time datetime="2018-02-14T17:19:00-02:00" pubdate>Wed 14 February 2018</time>
     <address class="vcard author">
-      by <a class="url fn" href="/author/renata.html">Renata</a>
+      by <a class="url fn" href="https://rsip22.github.io/blog/author/renata.html">Renata</a>
     </address>
-  in <a href="/category/blog.html">blog</a>
-<p class="tags">tagged <a href="/tag/personal.html">personal</a>, <a href="/tag/outreachy.html">outreachy</a>, <a href="/tag/development.html">development</a>, <a href="/tag/eclipse.html">eclipse</a>, <a href="/tag/python.html">python</a>, <a href="/tag/moinmoin-wiki.html">moinmoin-wiki</a></p></div>
+  in <a href="https://rsip22.github.io/blog/category/blog.html">blog</a>
+<p class="tags">tagged <a href="https://rsip22.github.io/blog/tag/personal.html">personal</a>, <a href="https://rsip22.github.io/blog/tag/outreachy.html">outreachy</a>, <a href="https://rsip22.github.io/blog/tag/development.html">development</a>, <a href="https://rsip22.github.io/blog/tag/eclipse.html">eclipse</a>, <a href="https://rsip22.github.io/blog/tag/python.html">python</a>, <a href="https://rsip22.github.io/blog/tag/moinmoin-wiki.html">moinmoin-wiki</a></p></div>
 		<h3>Debugging</h3>
 <p>When I was creating the cal_action, I didn't quite know how to debug MoinMoin. Could I use pudb with the wiki? I wasn't sure how. To figure out if the code I was writing worked, I ended up consulting the error logs from Apache. It sort of worked, but of course that was <em>very far</em> from the ideal. What if I wanted to check something that wasn't an error?</p>
 <p>Well, MoinMoin supposedly has a logging module, that lives on <code>moin-1.V.V/wiki/config/logging/</code>, but I simply couldn't get it to work as I wanted.</p>
@@ -93,7 +93,7 @@
 
 <p>More on <a href="https://wiki.debian.org/SymLink">symbolic links</a> can be found using the command <code>man ln</code> on Debian's terminal.</p>
 <p>With the Eclipse console, I could use <code>print help(request)</code> to figure out what methods would be available to me with the request provided by the macro. With this, I finally began to figure out how to create the response we want (without returning the whole wiki page with it, just the event information in the icalendar format).</p>
-<p><img alt="Eclipse IDE running the wikiserver.py from MoinMoin and showing the debug output in a terminal" src="/img/moin_with_eclipse.png"></p>
+<p><img alt="Eclipse IDE running the wikiserver.py from MoinMoin and showing the debug output in a terminal" src="https://rsip22.github.io/blog/img/moin_with_eclipse.png"></p>
 <p>If you don't know what I mean with request/response: in simple terms, when you click something on a webpage (for instance, my ical link in the bottom of the calendar) in your internet browser, you are <em>requesting</em> a resource (the icalendar file). It's up to the server to <em>respond</em> with the appropriate resource (the file) or with an status code explaining why it can't fulfill your request (for instance, you get an 404 error when the page - resource - you're trying to access - <em>requesting</em> - can't be found).</p>
 <p><img alt="A simplified diagram of a static web server showing the request-response cycle." src="https://mdn.mozillademos.org/files/13841/Basic%20Static%20App%20Server.png"></p>
 <p>Here you can find more information on <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview">client-Server overview, by Mozilla web docs</a>.</p>
@@ -104,8 +104,8 @@
 	<article>
 			<h2>Related posts</h2>
 		    <ul>
-			        <li><a href="/howto-use-the-ical.html">How to use the EventCalendar ical</a></li>
-			        <li><a href="/not-being-perfect.html">Not being perfect</a></li>
+			        <li><a href="https://rsip22.github.io/blog/howto-use-the-ical.html">How to use the EventCalendar ical</a></li>
+			        <li><a href="https://rsip22.github.io/blog/not-being-perfect.html">Not being perfect</a></li>
 		    </ul>
 			<hr>
 	</article>
@@ -122,7 +122,7 @@
 			<nav>
 				<h2>Categories</h2>
 				<ul>
-		              <li class="active"><a href="/category/blog.html">blog</a></li>
+		              <li class="active"><a href="https://rsip22.github.io/blog/category/blog.html">blog</a></li>
 				</ul>
 	        </nav>
 				<h2>Social</h2>

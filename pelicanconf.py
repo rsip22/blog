@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Renata'
 SITENAME = "Renata's blog"
-SITEURL = ''
+SITEURL = 'https://rsip22.github.io/blog/'
 HTML_LANG = 'en'
 
 THEME = './themes/pelican-simplegrey'
